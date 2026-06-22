@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onsite AI | On-Premises AI Infrastructure</title>
+    <meta
+      name="description"
+      content="Sovereign, on-premises AI infrastructure. Complete privacy, unlimited usage, and enterprise-grade performance running entirely on your own hardware."
+    />
+    <meta name="theme-color" content="#0a0805" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        /* Accent: Amber → Copper (premium hardware, industrial-tech) */
+        --accent: #ffb020;
+        --accent-2: #ff7849;
+        --accent-soft: rgba(255, 176, 32, 0.14);
+        --accent-glow: rgba(255, 137, 73, 0.35);
+
+        /* Base: warm carbon blacks with depth */
+        --darker: #0a0805;
+        --dark: #14100a;
+        --mid-dark: #1b160e;
+        --mid-gray: #241d12;
+        --hairline: rgba(255, 186, 120, 0.1);
+        --hairline-strong: rgba(255, 186, 120, 0.22);
+
+        /* Text */
+        --white: #fdfaf4;
+        --lighter: #f5efe6;
+        --light-gray: #c9bca8;
+        --gray: #9a8a72;
+
+        --grad: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.65;
+        color: var(--light-gray);
+        background: var(--darker);
+        overflow-x: hidden;
+        font-size: 17px;
+        letter-spacing: -0.011em;
+        font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+      }
+
+      ::selection {
+        background: rgba(255, 176, 32, 0.25);
+        color: var(--white);
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(20, 16, 10, 0.6);
+        backdrop-filter: blur(24px) saturate(160%);
+        border-bottom: 1px solid var(--hairline);
+        z-index: 1000;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      nav.scrolled {
+        background: rgba(10, 8, 5, 0.92);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+        border-bottom-color: var(--hairline-strong);
+      }
+
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1.2rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--white);
+        text-decoration: none;
+        letter-spacing: -0.03em;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        transition: transform 0.3s ease;
+      }
+
+      .logo:hover {
+        transform: translateY(-1px);
+      }
+
+      .logo-mark {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--grad);
+        box-shadow: 0 0 14px var(--accent-glow);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--light-gray);
+        font-weight: 500;
+        transition: color 0.25s ease;
+        font-size: 0.95rem;
+        letter-spacing: -0.01em;
+        position: relative;
+      }
+
+      .nav-links a:not(.btn-primary):hover {
+        color: var(--white);
+      }
+
+      .nav-links a:not(.btn-primary)::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0;
+        height: 2px;
+        background: var(--grad);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:not(.btn-primary):hover::after {
+        width: 100%;
+      }
+
+      .btn-primary {
+        background: var(--grad);
+        color: #1a1206 !important;
+        padding: 0.75rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: none;
+        cursor: pointer;
+        font-size: 0.95rem;
+        letter-spacing: -0.01em;
+        box-shadow: 0 4px 14px rgba(255, 137, 73, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 26px rgba(255, 137, 73, 0.5);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--white);
+        padding: 0.75rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid var(--hairline-strong);
+        font-size: 0.95rem;
+        letter-spacing: -0.01em;
+        backdrop-filter: blur(10px);
+      }
+
+      .btn-secondary:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: rgba(255, 176, 32, 0.06);
+        transform: translateY(-2px);
+      }
+
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px;
+      }
+
+      .mobile-menu span {
+        width: 25px;
+        height: 2px;
+        background: var(--white);
+        transition: 0.3s;
+        display: block;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);
+        color: white;
+        padding: 14rem 2rem 12rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          ellipse at center,
+          var(--accent-glow),
+          transparent 50%
+        );
+        animation: pulse 8s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.6;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.95;
+        }
+      }
+
+      #hero-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .hero-content {
+        max-width: 950px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        padding: 0.45rem 1rem;
+        border: 1px solid var(--hairline-strong);
+        border-radius: 999px;
+        background: rgba(255, 176, 32, 0.04);
+        margin-bottom: 2rem;
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      .eyebrow .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 10px var(--accent);
+      }
+
+      .hero h1 {
+        font-family: "Space Grotesk", -apple-system, sans-serif;
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        line-height: 1.05;
+        color: var(--white);
+        letter-spacing: -0.045em;
+        background: linear-gradient(
+          165deg,
+          var(--white) 0%,
+          rgba(255, 255, 255, 0.88) 45%,
+          rgba(255, 176, 32, 0.85) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      .hero p {
+        font-size: 1.35rem;
+        margin-bottom: 3rem;
+        color: var(--light-gray);
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 400;
+        line-height: 1.7;
+        animation: fadeInUp 0.8s ease-out 0.2s backwards;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeInUp 0.8s ease-out 0.4s backwards;
+      }
+
+      /* Sections */
+      .section {
+        padding: 7rem 2rem;
+        max-width: 1300px;
+        margin: 0 auto;
+        background: var(--darker);
+      }
+
+      .section-title {
+        font-family: "Space Grotesk", -apple-system, sans-serif;
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--white);
+        font-weight: 600;
+        letter-spacing: -0.045em;
+        line-height: 1.2;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--gray);
+        margin-bottom: 4rem;
+        font-weight: 400;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .feature-card {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.045) 0%,
+          rgba(255, 255, 255, 0.015) 100%
+        );
+        padding: 2.5rem;
+        border-radius: 16px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid var(--hairline);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          var(--accent-soft) 0%,
+          transparent 60%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .feature-card:hover::before {
+        opacity: 1;
+      }
+
+      .feature-card:hover {
+        border-color: var(--hairline-strong);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+          0 0 0 1px rgba(255, 176, 32, 0.15);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.95;
+        display: inline-block;
+        transition: transform 0.4s ease;
+      }
+
+      .feature-card:hover .feature-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .feature-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+        color: var(--white);
+        letter-spacing: -0.02em;
+        font-weight: 600;
+        position: relative;
+      }
+
+      .feature-card p {
+        color: var(--gray);
+        line-height: 1.7;
+        font-size: 0.95rem;
+        font-weight: 400;
+        position: relative;
+      }
+
+      /* Dark Features Section */
+      .features-dark {
+        background: linear-gradient(180deg, var(--dark) 0%, var(--darker) 100%);
+        color: white;
+        padding: 7rem 2rem;
+        border-top: 1px solid var(--hairline);
+        position: relative;
+      }
+
+      .features-dark::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        opacity: 0.6;
+      }
+
+      /* Pricing Section */
+      .pricing-bg {
+        background: var(--darker);
+        border-top: 1px solid var(--hairline);
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .pricing-card {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.045) 0%,
+          rgba(255, 255, 255, 0.015) 100%
+        );
+        border-radius: 16px;
+        padding: 2.5rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-top: 2rem;
+        border: 1px solid var(--hairline);
+      }
+
+      .pricing-card.featured {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 176, 32, 0.12) 0%,
+          rgba(255, 137, 73, 0.04) 100%
+        );
+        border-color: var(--accent);
+        transform: scale(1.05);
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--hairline-strong);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .pricing-card.featured:hover {
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 24px 48px rgba(255, 137, 73, 0.25);
+      }
+
+      .pricing-badge {
+        background: var(--grad);
+        color: #1a1206;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        display: inline-block;
+        position: absolute;
+        top: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        box-shadow: 0 4px 14px rgba(255, 137, 73, 0.4);
+      }
+
+      .pricing-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--white);
+        letter-spacing: -0.02em;
+        font-weight: 700;
+      }
+
+      .pricing-card .subtext {
+        color: var(--gray);
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+      }
+
+      .pricing-features {
+        list-style: none;
+        margin: 1.5rem 0;
+        flex-grow: 1;
+      }
+
+      .pricing-features li {
+        padding: 0.7rem 0;
+        color: var(--light-gray);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.92rem;
+        font-weight: 400;
+      }
+
+      .pricing-features li::before {
+        content: "✓";
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      /* ROI Section */
+      .roi-section {
+        background: linear-gradient(180deg, var(--dark) 0%, var(--darker) 100%);
+        color: white;
+        padding: 7rem 2rem;
+        text-align: center;
+        border-top: 1px solid var(--hairline);
+      }
+
+      .roi-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 3rem auto 0;
+      }
+
+      .roi-stat {
+        padding: 2.5rem;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.045) 0%,
+          rgba(255, 255, 255, 0.015) 100%
+        );
+        border-radius: 16px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid var(--hairline);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .roi-stat::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          var(--accent-soft) 0%,
+          transparent 60%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .roi-stat:hover::before {
+        opacity: 1;
+      }
+
+      .roi-stat:hover {
+        border-color: var(--hairline-strong);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .roi-stat .number {
+        font-family: "Space Grotesk", -apple-system, sans-serif;
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        background: var(--grad);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -0.03em;
+        position: relative;
+        font-feature-settings: "tnum" 1, "zero" 1;
+      }
+
+      .roi-stat .label {
+        font-size: 0.95rem;
+        color: var(--gray);
+        font-weight: 400;
+        position: relative;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);
+        color: white;
+        padding: 8rem 2rem;
+        text-align: center;
+        border-top: 1px solid var(--hairline);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(255, 176, 32, 0.14),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .cta-section h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 2.75rem;
+        margin-bottom: 1rem;
+        letter-spacing: -0.03em;
+        color: var(--white);
+        font-weight: 600;
+        position: relative;
+      }
+
+      .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        color: var(--gray);
+        font-weight: 400;
+        position: relative;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--darker);
+        color: white;
+        padding: 4rem 2rem 2rem;
+        border-top: 1px solid var(--hairline);
+      }
+
+      .footer-content {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-section h4 {
+        margin-bottom: 1.25rem;
+        color: var(--white);
+        letter-spacing: -0.01em;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .footer-section p,
+      .footer-section a {
+        color: var(--gray);
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.75rem;
+        font-size: 0.92rem;
+        font-weight: 400;
+        transition: color 0.2s ease;
+      }
+
+      .footer-section a:hover {
+        color: var(--accent);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid var(--hairline);
+        color: var(--gray);
+        font-size: 0.88rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: rgba(10, 8, 5, 0.98);
+          flex-direction: column;
+          padding: 1.5rem;
+          border-top: 1px solid var(--hairline);
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .mobile-menu {
+          display: flex;
+        }
+
+        .hero {
+          padding: 10rem 2rem 8rem;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .pricing-card.featured {
+          transform: scale(1);
+        }
+
+        .pricing-card.featured:hover {
+          transform: translateY(-8px);
+        }
+
+        .section-title {
+          font-size: 2.25rem;
+        }
+
+        .section {
+          padding: 5rem 2rem;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Benefits List */
+      .benefits-list {
+        max-width: 950px;
+        margin: 3rem auto;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.045) 0%,
+          rgba(255, 255, 255, 0.015) 100%
+        );
+        padding: 3rem;
+        border-radius: 16px;
+        border: 1px solid var(--hairline);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .benefits-list::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 176, 32, 0.05) 0%,
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+
+      .benefits-list ul {
+        list-style: none;
+        padding: 0;
+        position: relative;
+      }
+
+      .benefits-list li {
+        padding: 1.25rem 0;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        display: flex;
+        align-items: flex-start;
+        gap: 1.25rem;
+        font-weight: 400;
+        transition: transform 0.3s ease;
+        border-bottom: 1px solid var(--hairline);
+      }
+
+      .benefits-list li:last-child {
+        border-bottom: none;
+      }
+
+      .benefits-list li:hover {
+        transform: translateX(8px);
+      }
+
+      .check {
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 1.4rem;
+        flex-shrink: 0;
+        background: var(--grad);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .benefits-list strong {
+        color: var(--white);
+        letter-spacing: -0.01em;
+        font-weight: 600;
+      }
+
+      .list-item-header {
+        display: flex;
+        gap: 1rem;
+        align-items: start;
+      }
+
+      .list-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 2rem;
+      }
+
+      .list-item p {
+        margin: 0;
+        max-width: 60%;
+        color: var(--light-gray);
+      }
+
+      @media (max-width: 768px) {
+        .benefits-list {
+          padding: 2rem;
+        }
+
+        .benefits-list li {
+          font-size: 0.95rem;
+        }
+
+        .list-item {
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          gap: 0.75rem;
+        }
+
+        .list-item-header {
+          align-items: center;
+        }
+
+        .list-item p {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo"><span class="logo-mark"></span>Onsite AI</a>
+        <button
+          class="mobile-menu"
+          onclick="toggleMenu()"
+          aria-label="Toggle navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#features">Capabilities</a></li>
+          <li><a href="#pricing">Deployment models</a></li>
+          <li><a href="#roi">Value realization</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact" class="btn-primary">Request a demo</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <canvas id="hero-canvas"></canvas>
+      <div class="hero-content fade-in">
+        <span class="eyebrow"><span class="dot"></span>On-premises · Air-gap ready</span>
+        <h1>Sovereign AI systems<br />for critical operations</h1>
+        <p>
+          Purpose-built intelligence infrastructure for organizations where
+          confidentiality and control are non-negotiable. Deployed behind your
+          firewall. Governed by your policies. Running entirely on your hardware.
+        </p>
+        <div class="hero-buttons">
+          <a href="#pricing" class="btn-primary">Request a demo</a>
+          <a href="mailto:alex@onsiteai.network" class="btn-secondary"
+            >Discuss requirements</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Features / Benefits Section -->
+    <section class="section" id="features">
+      <h2 class="section-title">Why Choose On-Premises AI?</h2>
+      <p class="section-subtitle">
+        Complete control, maximum privacy, unlimited potential
+      </p>
+
+      <div class="benefits-list">
+        <ul>
+          <li class="list-item">
+            <span class="list-item-header">
+              <div class="check">✓</div>
+              <strong>Complete Privacy</strong></span
+            >
+            <p>
+              Your data never leaves your building. Purpose-built for proprietary
+              and confidential matters.
+            </p>
+          </li>
+          <li class="list-item">
+            <span class="list-item-header">
+              <div class="check">✓</div>
+              <strong>Predictable Economics</strong>
+            </span>
+            <p>
+              Unlimited usage with no API fees or token limits. Fixed costs,
+              unlimited value.
+            </p>
+          </li>
+          <li class="list-item">
+            <span class="list-item-header">
+              <div class="check">✓</div>
+              <strong>Enterprise-Grade Performance</strong></span
+            >
+            <p>
+              State-of-the-art language models optimized for your workload
+              patterns and response requirements.
+            </p>
+          </li>
+          <li class="list-item">
+            <span class="list-item-header">
+              <div class="check">✓</div>
+              <strong>Air-Gap Ready</strong></span
+            >
+            <p>
+              Operates fully offline or with precisely controlled network
+              access. You define the security architecture.
+            </p>
+          </li>
+          <li class="list-item">
+            <span class="list-item-header">
+              <div class="check">✓</div>
+              <strong>Advanced Knowledge Retrieval</strong></span
+            >
+            <p>
+              Search and analyze millions of documents instantly using vector
+              embeddings and semantic search (RAG).
+            </p>
+          </li>
+          <li class="list-item">
+            <span class="list-item-header">
+              <div class="check">✓</div>
+              <strong>Continuous Evolution</strong></span
+            >
+            <p>
+              Model updates and capability enhancements deployed on your
+              schedule without service disruption.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Complete Feature Set Section -->
+    <section class="features-dark">
+      <div style="max-width: 1200px; margin: 0 auto">
+        <h2 class="section-title">Complete Feature Set</h2>
+        <p class="section-subtitle">
+          Everything you need for enterprise AI deployment
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🖥️</div>
+            <h3>Open WebUI Interface</h3>
+            <p>
+              Intuitive, user-friendly interface that your team can start using
+              immediately with minimal training.
+            </p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">⚙️</div>
+            <h3>vLLM Inference Engine</h3>
+            <p>
+              High-performance inference engine optimized for speed and
+              efficiency on your hardware.
+            </p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🔀</div>
+            <h3>Multi-Model Support</h3>
+            <p>
+              Run multiple AI models simultaneously. Choose the right model for
+              each task.
+            </p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">💬</div>
+            <h3>Conversation History</h3>
+            <p>
+              Complete conversation tracking and history management for seamless
+              workflow continuity.
+            </p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🔐</div>
+            <h3>Full Disk Encryption</h3>
+            <p>
+              Military-grade encryption protects your data at rest. Multiple
+              layers of security built-in.
+            </p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📋</div>
+            <h3>Audit Logging & Trails</h3>
+            <p>
+              Complete audit trails for compliance. Track every query, access,
+              and system change.
+            </p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">👥</div>
+            <h3>Role-Based Access Control</h3>
+            <p>
+              Granular permissions and access controls. Define exactly who can
+              access what.
+            </p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🔑</div>
+            <h3>MFA Authentication</h3>
+            <p>
+              Multi-factor authentication ensures only authorized users can
+              access the system.
+            </p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">✅</div>
+            <h3>SOC 2 Ready Architecture</h3>
+            <p>
+              Built with compliance in mind. SOC 2 ready architecture out of the
+              box.
+            </p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🏢</div>
+            <h3>Active Directory / LDAP</h3>
+            <p>
+              Seamless integration with your existing directory services and
+              authentication systems.
+            </p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🎫</div>
+            <h3>SSO Integration</h3>
+            <p>
+              Single sign-on support for streamlined access across your
+              organization.
+            </p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📄</div>
+            <h3>Document Import Tools</h3>
+            <p>
+              Easy-to-use tools for importing and indexing your existing
+              document repositories.
+            </p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">💾</div>
+            <h3>Backup Automation</h3>
+            <p>
+              Automated backup systems ensure your data is always protected and
+              recoverable.
+            </p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📊</div>
+            <h3>Usage Analytics</h3>
+            <p>
+              Comprehensive analytics dashboard to track usage, performance, and
+              ROI metrics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing-bg" id="pricing">
+      <h2 class="section-title">Packages</h2>
+      <p class="section-subtitle">One-time investment, lifetime value</p>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Foundation</h3>
+          <div class="subtext">5-user deployment</div>
+          <ul class="pricing-features">
+            <li>5 concurrent users</li>
+            <li>35 tokens/sec performance</li>
+            <li>50K pages capacity</li>
+            <li>Professional GPU (48GB)</li>
+            <li>2TB SSD + 8TB HDD</li>
+            <li>3-year warranty</li>
+          </ul>
+          <a
+            href="#contact"
+            class="btn-secondary"
+            style="width: 100%; display: block; text-align: center"
+            >Get Started</a
+          >
+        </div>
+
+        <div class="pricing-card featured">
+          <span class="pricing-badge">MOST POPULAR</span>
+          <h3>Enterprise</h3>
+          <div class="subtext">20-user deployment</div>
+          <ul class="pricing-features">
+            <li>20 concurrent users</li>
+            <li>60 tokens/sec performance</li>
+            <li>500K pages capacity</li>
+            <li>Dual Enterprise GPUs (96GB)</li>
+            <li>4TB SSD + 16TB HDD</li>
+            <li>Redundant power supplies</li>
+            <li>3-year warranty</li>
+          </ul>
+          <a
+            href="#contact"
+            class="btn-primary"
+            style="width: 100%; display: block; text-align: center"
+            >Get Started</a
+          >
+        </div>
+
+        <div class="pricing-card">
+          <h3>Strategic</h3>
+          <div class="subtext">40-user deployment</div>
+          <ul class="pricing-features">
+            <li>40 concurrent users</li>
+            <li>100 tokens/sec performance</li>
+            <li>5M pages capacity</li>
+            <li>Dual Premium GPUs (160GB)</li>
+            <li>8TB SSD + 32TB HDD</li>
+            <li>High-availability ready</li>
+            <li>5-year priority warranty</li>
+          </ul>
+          <a
+            href="#contact"
+            class="btn-secondary"
+            style="width: 100%; display: block; text-align: center"
+            >Get Started</a
+          >
+        </div>
+
+        <div class="pricing-card">
+          <h3>Sovereign</h3>
+          <div class="subtext">50+ user deployment</div>
+          <ul class="pricing-features">
+            <li>50+ concurrent users</li>
+            <li>200+ tokens/sec performance</li>
+            <li>50M+ pages capacity</li>
+            <li>4× Ultra GPUs (320GB)</li>
+            <li>16TB SSD + 64TB HDD</li>
+            <li>Multi-site replication</li>
+            <li>5-year white-glove support</li>
+          </ul>
+          <a
+            href="#contact"
+            class="btn-secondary"
+            style="width: 100%; display: block; text-align: center"
+            >Get Started</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="roi-section" id="roi">
+      <h2 class="section-title" style="color: white">
+        Proven Value Realization
+      </h2>
+      <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9)">
+        Rapid operational impact, measurable results
+      </p>
+
+      <div class="roi-stats">
+        <div class="roi-stat">
+          <div class="number">3.5×</div>
+          <div class="label">Knowledge Retrieval Velocity</div>
+        </div>
+        <div class="roi-stat">
+          <div class="number">60%</div>
+          <div class="label">Reduction in Processing Time</div>
+        </div>
+        <div class="roi-stat">
+          <div class="number">&lt;30</div>
+          <div class="label">Days to Operational ROI</div>
+        </div>
+        <div class="roi-stat">
+          <div
+            class="number"
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-top: 0.5rem;
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="70"
+              height="70"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <defs>
+                <linearGradient
+                  id="infinityGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+                >
+                  <stop offset="0%" style="stop-color: #ffb020; stop-opacity: 1" />
+                  <stop offset="100%" style="stop-color: #ff7849; stop-opacity: 1" />
+                </linearGradient>
+              </defs>
+              <path
+                fill="url(#infinityGradient)"
+                d="M3 12C3 13.933 4.567 15.5 6.5 15.5C7.7035 15.5 8.51959 15.0662 9.19914 14.3866C9.82141 13.7644 10.3213 12.9468 10.8546 12C10.3213 11.0532 9.82141 10.2356 9.19914 9.61336C8.51959 8.9338 7.7035 8.5 6.5 8.5C4.567 8.5 3 10.067 3 12ZM6.5 17.5C3.46243 17.5 1 15.0376 1 12C1 8.96243 3.46243 6.5 6.5 6.5C8.2965 6.5 9.60541 7.1912 10.6134 8.19914C11.1486 8.7344 11.5999 9.36157 12 10.0017C12.4001 9.36157 12.8514 8.7344 13.3866 8.19914C14.3946 7.1912 15.7035 6.5 17.5 6.5C20.5376 6.5 23 8.96243 23 12C23 15.0376 20.5376 17.5 17.5 17.5C15.7035 17.5 14.3946 16.8088 13.3866 15.8009C12.8514 15.2656 12.4001 14.6384 12 13.9983C11.5999 14.6384 11.1486 15.2656 10.6134 15.8009C9.60541 16.8088 8.2965 17.5 6.5 17.5ZM13.1454 12C13.6787 12.9468 14.1786 13.7644 14.8009 14.3866C15.4804 15.0662 16.2965 15.5 17.5 15.5C19.433 15.5 21 13.933 21 12C21 10.067 19.433 8.5 17.5 8.5C16.2965 8.5 15.4804 8.9338 14.8009 9.61336C14.1786 10.2356 13.6787 11.0532 13.1454 12Z"
+              ></path>
+            </svg>
+          </div>
+          <div class="label" style="margin-top: 1rem">
+            Queries Per Deployment
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+      <h2>Ready to Transform Your Organization?</h2>
+      <p>
+        Tell us about your environment and we'll scope a deployment that fits.
+      </p>
+      <div class="hero-buttons">
+        <a href="mailto:alex@onsiteai.network" class="btn-primary"
+          >Request a demo</a
+        >
+        <a href="mailto:alex@onsiteai.network" class="btn-secondary"
+          >Email us</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Onsite AI</h4>
+          <p>
+            Enterprise-grade AI infrastructure for organizations where
+            confidentiality is paramount. Secure, private, and powerful.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>Solutions</h4>
+          <a href="#pricing">Pricing</a>
+          <a href="#features">Features</a>
+          <a href="#roi">Value realization</a>
+          <a href="mailto:alex@onsiteai.network">Schedule Demo</a>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <a href="mailto:alex@onsiteai.network">Contact Support</a>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>Email: alex@onsiteai.network</p>
+          <p>Hours: M–F 8AM–6PM MT</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Onsite AI. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Hero Canvas Animation — amber particle network
+      const canvas = document.getElementById("hero-canvas");
+      const ctx = canvas.getContext("2d");
+      let particles = [];
+      let animationFrameId;
+
+      function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+      }
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 0.6;
+          this.vy = (Math.random() - 0.5) * 0.6;
+          this.radius = Math.random() * 2.5 + 1;
+          this.opacity = Math.random() * 0.5 + 0.3;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          const gradient = ctx.createRadialGradient(
+            this.x,
+            this.y,
+            0,
+            this.x,
+            this.y,
+            this.radius
+          );
+          gradient.addColorStop(0, `rgba(255, 176, 32, ${this.opacity * 1.5})`);
+          gradient.addColorStop(1, `rgba(255, 137, 73, 0)`);
+          ctx.fillStyle = gradient;
+          ctx.fill();
+        }
+      }
+
+      function initParticles() {
+        particles = [];
+        const particleCount = Math.min(100, Math.floor(canvas.width / 12));
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function connectParticles() {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 150) {
+              ctx.beginPath();
+              const opacity = 0.3 * (1 - distance / 150);
+              ctx.strokeStyle = `rgba(255, 160, 60, ${opacity})`;
+              ctx.lineWidth = 1.5;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach((particle) => {
+          particle.update();
+          particle.draw();
+        });
+
+        connectParticles();
+        animationFrameId = requestAnimationFrame(animate);
+      }
+
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      resizeCanvas();
+      initParticles();
+      if (prefersReducedMotion) {
+        // Draw a single static frame instead of animating.
+        particles.forEach((p) => p.draw());
+        connectParticles();
+      } else {
+        animate();
+      }
+
+      window.addEventListener("resize", () => {
+        resizeCanvas();
+        initParticles();
+      });
+
+      // Mobile menu toggle
+      function toggleMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("active");
+      }
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Fade in elements on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -80px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".feature-card, .pricing-card, .roi-stat")
+        .forEach((card) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(40px)";
+          card.style.transition = "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)";
+          observer.observe(card);
+        });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", function () {
+          document.getElementById("navLinks").classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>
