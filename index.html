@@ -8,7 +8,8 @@
       name="description"
       content="Sovereign, on-premises AI infrastructure. Complete privacy, unlimited usage, and enterprise-grade performance running entirely on your own hardware."
     />
-    <meta name="theme-color" content="#0a0805" />
+    <meta name="theme-color" content="#05070c" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -119,11 +120,15 @@
       }
 
       .logo-mark {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: var(--grad);
-        box-shadow: 0 0 14px var(--accent-glow), 0 0 0 3px rgba(41, 231, 224, 0.18);
+        width: 26px;
+        height: 26px;
+        flex-shrink: 0;
+        filter: drop-shadow(0 0 6px var(--accent-glow));
+        transition: transform 0.3s ease;
+      }
+
+      .logo:hover .logo-mark {
+        transform: rotate(-8deg) scale(1.05);
       }
 
       .nav-links {
@@ -952,7 +957,24 @@
     <!-- Navigation -->
     <nav id="navbar">
       <div class="nav-container">
-        <a href="#" class="logo"><span class="logo-mark"></span>Onsite AI</a>
+        <a href="#" class="logo">
+          <svg
+            class="logo-mark"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 64 64"
+            fill="none"
+            stroke="#ffb627"
+            stroke-width="3"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <polygon points="32,6 54.5,19 54.5,45 32,58 9.5,45 9.5,19"></polygon>
+            <path d="M27 24 L20 40 M27 24 L34 40 M22.625 34 L31.375 34"></path>
+            <path d="M41 24 L41 40 M38 24 L44 24 M38 40 L44 40"></path>
+          </svg>
+          Onsite AI</a
+        >
         <button
           class="mobile-menu"
           onclick="toggleMenu()"
@@ -1389,13 +1411,8 @@
           <a href="mailto:alex@onsiteai.network">Schedule Demo</a>
         </div>
         <div class="footer-section">
-          <h4>Support</h4>
-          <a href="mailto:alex@onsiteai.network">Contact Support</a>
-        </div>
-        <div class="footer-section">
           <h4>Contact</h4>
           <p>Email: alex@onsiteai.network</p>
-          <p>Hours: M–F 8AM–6PM MT</p>
         </div>
       </div>
       <div class="footer-bottom">
