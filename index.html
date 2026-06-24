@@ -23,25 +23,29 @@
       }
 
       :root {
-        /* Accent: Amber → Copper (premium hardware, industrial-tech) */
-        --accent: #ffb020;
-        --accent-2: #ff7849;
-        --accent-soft: rgba(255, 176, 32, 0.14);
-        --accent-glow: rgba(255, 137, 73, 0.35);
+        /* Accent: electric Amber → Copper (primary signal) */
+        --accent: #ffb627;
+        --accent-2: #ff6a3d;
+        --accent-soft: rgba(255, 182, 39, 0.14);
+        --accent-glow: rgba(255, 106, 61, 0.32);
 
-        /* Base: warm carbon blacks with depth */
-        --darker: #0a0805;
-        --dark: #14100a;
-        --mid-dark: #1b160e;
-        --mid-gray: #241d12;
-        --hairline: rgba(255, 186, 120, 0.1);
-        --hairline-strong: rgba(255, 186, 120, 0.22);
+        /* Tech accent: electric cyan (data / network / circuitry) */
+        --tech: #29e7e0;
+        --tech-glow: rgba(41, 231, 224, 0.3);
+
+        /* Base: cool blue-charcoal blacks with depth */
+        --darker: #05070c;
+        --dark: #0a0e16;
+        --mid-dark: #10151f;
+        --mid-gray: #161c29;
+        --hairline: rgba(120, 180, 220, 0.1);
+        --hairline-strong: rgba(140, 200, 235, 0.2);
 
         /* Text */
-        --white: #fdfaf4;
-        --lighter: #f5efe6;
-        --light-gray: #c9bca8;
-        --gray: #9a8a72;
+        --white: #f4f7fb;
+        --lighter: #e7edf5;
+        --light-gray: #b3bccb;
+        --gray: #7c8798;
 
         --grad: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
       }
@@ -75,7 +79,7 @@
         position: fixed;
         top: 0;
         width: 100%;
-        background: rgba(20, 16, 10, 0.6);
+        background: rgba(10, 14, 22, 0.6);
         backdrop-filter: blur(24px) saturate(160%);
         border-bottom: 1px solid var(--hairline);
         z-index: 1000;
@@ -83,7 +87,7 @@
       }
 
       nav.scrolled {
-        background: rgba(10, 8, 5, 0.92);
+        background: rgba(5, 7, 12, 0.92);
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
         border-bottom-color: var(--hairline-strong);
       }
@@ -119,7 +123,7 @@
         height: 12px;
         border-radius: 50%;
         background: var(--grad);
-        box-shadow: 0 0 14px var(--accent-glow);
+        box-shadow: 0 0 14px var(--accent-glow), 0 0 0 3px rgba(41, 231, 224, 0.18);
       }
 
       .nav-links {
@@ -295,8 +299,19 @@
         width: 7px;
         height: 7px;
         border-radius: 50%;
-        background: var(--accent);
-        box-shadow: 0 0 10px var(--accent);
+        background: var(--tech);
+        box-shadow: 0 0 10px var(--tech);
+        animation: blink 2.4s ease-in-out infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.35;
+        }
       }
 
       .hero h1 {
@@ -742,7 +757,7 @@
           top: 100%;
           left: 0;
           right: 0;
-          background: rgba(10, 8, 5, 0.98);
+          background: rgba(5, 7, 12, 0.98);
           flex-direction: column;
           padding: 1.5rem;
           border-top: 1px solid var(--hairline);
@@ -1453,8 +1468,8 @@
 
             if (distance < 150) {
               ctx.beginPath();
-              const opacity = 0.3 * (1 - distance / 150);
-              ctx.strokeStyle = `rgba(255, 160, 60, ${opacity})`;
+              const opacity = 0.32 * (1 - distance / 150);
+              ctx.strokeStyle = `rgba(41, 231, 224, ${opacity})`;
               ctx.lineWidth = 1.5;
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
