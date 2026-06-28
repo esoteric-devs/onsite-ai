@@ -10,7 +10,7 @@
     />
     <meta
       name="keywords"
-      content="on-premises AI, on-prem AI, private AI, sovereign AI, self-hosted LLM, air-gapped AI, on-premises LLM, enterprise AI infrastructure, data-private AI, RAG, vLLM, Open WebUI, SOC 2 AI, secure AI deployment"
+      content="on-premises AI, on-prem AI, private AI, sovereign AI, self-hosted LLM, air-gapped AI, on-premises LLM, enterprise AI infrastructure, data-private AI, RAG, vLLM, Open WebUI, SOC 2 AI, secure AI deployment, ITAR compliant AI, CMMC AI, defense AI, aerospace AI, classified AI, CUI AI, HIPAA AI, healthcare on-premises AI, on-prem AI manufacturing, industrial AI, OT network AI, NERC CIP AI, critical infrastructure AI, energy utility AI, legal AI on-premises, attorney-client privilege AI, financial services private AI, banking AI, government on-premises AI, pharmaceutical AI, biotech R&D AI, GxP AI"
     />
     <meta name="author" content="Onsite AI" />
     <meta name="robots" content="index, follow" />
@@ -44,9 +44,83 @@
         "name": "Onsite AI",
         "url": "https://onsiteai.network/",
         "logo": "https://onsiteai.network/favicon.svg",
-        "email": "alex@onsiteai.network",
+        "email": "contact@onsiteai.network",
         "description": "Sovereign, on-premises AI infrastructure. Complete privacy, unlimited usage, and enterprise-grade performance running entirely on your own hardware.",
         "slogan": "Sovereign AI systems for critical operations"
+      }
+    </script>
+
+    <!-- FAQ structured data — answer-engine / AI-search optimization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can manufacturers use AI without sending plant data to the cloud?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. On-premises AI runs entirely inside the plant's air-gapped OT network, so PLC code, schematics, and SOPs never leave the building. It diagnoses faults, captures retiring engineers' knowledge, and bridges shifts while keeping process IP fully private."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can defense and aerospace contractors use AI on ITAR or classified data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not on commercial cloud AI — ITAR/EAR-controlled technical data and classified programs legally cannot touch it. Onsite AI runs inference inside accredited, air-gapped enclaves so teams can query controlled drawings, requirements, and test data while meeting CMMC requirements."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is on-premises AI HIPAA compliant for healthcare?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On-premises AI keeps HIPAA-protected records, imaging, and clinical notes inside your facility, eliminating the liability of PHI leaving your premises. Clinicians and researchers query the full corpus with a complete audit trail."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can law firms use AI without breaching attorney-client privilege?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, with on-premises AI. Case files, sealed matters, and M&A diligence never transit a third-party model, so privilege and confidentiality are preserved while AI reviews discovery, drafts, and precedent behind the firm's own firewall."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can banks and financial firms use AI on confidential or MNPI data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On-premises AI lets financial institutions analyze filings, contracts, and risk data without exposing material non-public information to a cloud provider, satisfying data-residency rules and examiner scrutiny with full logging and sovereign control."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can government agencies use AI on CUI or classified workloads?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "By deploying AI on accredited, isolated networks on-premises. This provides the data sovereignty public cloud cannot guarantee and aligns with FedRAMP High and IL5/6 controls for CUI and classified workloads."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can energy and utility operators use AI on NERC CIP or SCADA systems?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On-premises AI runs without internet access, so critical-infrastructure systems stay behind NERC CIP and SCADA isolation. It surfaces operational and compliance knowledge without breaching the security perimeter."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can pharma and biotech use AI on proprietary R&D and GxP data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. On-premises AI keeps trade-secret formulations, GxP records, and clinical-trial data inside your walls while accelerating literature and protocol review — protecting the proprietary research that is the core value of the enterprise."
+            }
+          }
+        ]
       }
     </script>
 
@@ -492,6 +566,14 @@
         letter-spacing: -0.02em;
         font-weight: 600;
         position: relative;
+      }
+
+      .feature-card p.industry-q {
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 0.92rem;
+        line-height: 1.45;
+        margin-bottom: 0.6rem;
       }
 
       .feature-card p {
@@ -1267,89 +1349,194 @@
       </div>
     </section>
 
+    <!-- Industries Section -->
+    <section class="section" id="industries">
+      <h2 class="section-title">Built for sectors the cloud can't reach</h2>
+      <p class="section-subtitle">
+        When regulation, classification, or contractual obligation rules out
+        cloud AI, on-premises is the only path to the same capability
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🏭</div>
+          <h3>Manufacturing &amp; Industrial</h3>
+          <p class="industry-q">Can manufacturers use AI without sending plant data to the cloud?</p>
+          <p>
+            Plant-floor OT networks are isolated from IT by design, and PLC
+            code, schematics, and SOPs are core process IP. On-prem AI diagnoses
+            faults, captures retiring engineers' knowledge, and bridges shifts
+            — without anything leaving the air gap.
+          </p>
+        </div>
+
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🛡️</div>
+          <h3>Defense &amp; Aerospace</h3>
+          <p class="industry-q">Can defense contractors use AI on ITAR-controlled or classified data?</p>
+          <p>
+            ITAR/EAR-controlled technical data and classified programs legally
+            cannot touch a commercial cloud. Run inference inside accredited,
+            air-gapped enclaves while teams query controlled drawings,
+            requirements, and test data under CMMC.
+          </p>
+        </div>
+
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🩺</div>
+          <h3>Healthcare &amp; Life Sciences</h3>
+          <p class="industry-q">Is on-premises AI HIPAA compliant for patient data?</p>
+          <p>
+            HIPAA-protected records, imaging, and clinical notes carry real
+            liability the moment they leave your premises. Keep PHI in-building
+            while clinicians and researchers query the full corpus with a
+            complete audit trail.
+          </p>
+        </div>
+
+        <div class="feature-card fade-in">
+          <div class="feature-icon">⚖️</div>
+          <h3>Legal &amp; Professional Services</h3>
+          <p class="industry-q">Can law firms use AI without breaching attorney-client privilege?</p>
+          <p>
+            Attorney-client privilege, sealed matters, and M&amp;A diligence
+            demand that case files never transit a third-party model. On-prem AI
+            reviews discovery, drafts, and precedent behind your own firewall.
+          </p>
+        </div>
+
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🏦</div>
+          <h3>Financial Services &amp; Banking</h3>
+          <p class="industry-q">Can banks use AI on confidential or material non-public information?</p>
+          <p>
+            Material non-public information, data-residency rules, and examiner
+            scrutiny make cloud inference a compliance risk. Analyze filings,
+            contracts, and risk data with sovereign control and full logging.
+          </p>
+        </div>
+
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🏛️</div>
+          <h3>Government &amp; Public Sector</h3>
+          <p class="industry-q">How can agencies use AI on CUI or classified workloads?</p>
+          <p>
+            CUI and classified workloads require data sovereignty that public
+            cloud cannot guarantee. Deploy on accredited, isolated networks
+            aligned to FedRAMP High and IL5/6 controls.
+          </p>
+        </div>
+
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🔌</div>
+          <h3>Energy &amp; Utilities</h3>
+          <p class="industry-q">Can utilities use AI on NERC CIP or SCADA systems?</p>
+          <p>
+            NERC CIP and SCADA isolation keep critical-infrastructure systems
+            off the public internet. On-prem AI surfaces operational and
+            compliance knowledge without breaching the security perimeter.
+          </p>
+        </div>
+
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🧬</div>
+          <h3>Pharmaceutical &amp; Biotech R&amp;D</h3>
+          <p class="industry-q">Can pharma use AI on proprietary R&amp;D and GxP data?</p>
+          <p>
+            Trade-secret formulations, GxP records, and clinical-trial data are
+            the entire value of the enterprise. Keep proprietary research inside
+            your walls while accelerating literature and protocol review.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- Pricing Section -->
     <section class="section pricing-bg" id="pricing">
-      <h2 class="section-title">Packages</h2>
-      <p class="section-subtitle">One-time investment, lifetime value</p>
+      <h2 class="section-title">Deployment Models</h2>
+      <p class="section-subtitle">
+        A staged engagement — validate in the cloud, then deploy sovereign,
+        air-gapped infrastructure scaled to your operation
+      </p>
 
       <div class="pricing-grid">
         <div class="pricing-card">
-          <h3>Foundation</h3>
-          <div class="subtext">5-user deployment</div>
+          <span class="pricing-badge">START HERE</span>
+          <h3>Proof of Concept</h3>
+          <div class="subtext">6-week cloud validation</div>
           <ul class="pricing-features">
-            <li>5 concurrent users</li>
-            <li>35 tokens/sec performance</li>
-            <li>50K pages capacity</li>
-            <li>Professional GPU (48GB)</li>
-            <li>2TB SSD + 8TB HDD</li>
-            <li>3-year warranty</li>
+            <li>Validated against your actual corpus</li>
+            <li>Working portal with cited fault diagnosis</li>
+            <li>30-day live engineer access (SSO)</li>
+            <li>Engineer-driven benchmark report</li>
+            <li>90-minute live demo &amp; handoff</li>
+            <li>Fully creditable to deployment</li>
           </ul>
           <a
             href="#contact"
             class="btn-secondary"
             style="width: 100%; display: block; text-align: center"
-            >Get Started</a
-          >
-        </div>
-
-        <div class="pricing-card featured">
-          <span class="pricing-badge">MOST POPULAR</span>
-          <h3>Enterprise</h3>
-          <div class="subtext">20-user deployment</div>
-          <ul class="pricing-features">
-            <li>20 concurrent users</li>
-            <li>60 tokens/sec performance</li>
-            <li>500K pages capacity</li>
-            <li>Dual Enterprise GPUs (96GB)</li>
-            <li>4TB SSD + 16TB HDD</li>
-            <li>Redundant power supplies</li>
-            <li>3-year warranty</li>
-          </ul>
-          <a
-            href="#contact"
-            class="btn-primary"
-            style="width: 100%; display: block; text-align: center"
-            >Get Started</a
+            >Start a PoC</a
           >
         </div>
 
         <div class="pricing-card">
           <h3>Strategic</h3>
-          <div class="subtext">40-user deployment</div>
+          <div class="subtext">Single inference server</div>
           <ul class="pricing-features">
-            <li>40 concurrent users</li>
-            <li>100 tokens/sec performance</li>
-            <li>5M pages capacity</li>
-            <li>Dual Premium GPUs (160GB)</li>
-            <li>8TB SSD + 32TB HDD</li>
-            <li>High-availability ready</li>
-            <li>5-year priority warranty</li>
+            <li>40+ concurrent engineering users</li>
+            <li>2× NVIDIA RTX PRO 6000 Blackwell</li>
+            <li>192GB total VRAM</li>
+            <li>512GB ECC RAM · dual EPYC 9355</li>
+            <li>8TB NVMe + 32TB SAS archive</li>
+            <li>3-year parts &amp; labor warranty</li>
           </ul>
           <a
             href="#contact"
             class="btn-secondary"
             style="width: 100%; display: block; text-align: center"
-            >Get Started</a
+            >Discuss deployment</a
+          >
+        </div>
+
+        <div class="pricing-card featured">
+          <span class="pricing-badge">MOST FLEXIBLE</span>
+          <h3>Professional</h3>
+          <div class="subtext">Multi-model single server</div>
+          <ul class="pricing-features">
+            <li>40+ concurrent engineering users</li>
+            <li>3× NVIDIA RTX PRO 6000 Blackwell</li>
+            <li>288GB total VRAM</li>
+            <li>Parallel multi-model serving</li>
+            <li>Vision-language for schematics &amp; prints</li>
+            <li>768GB ECC RAM · 16TB NVMe + 48TB SAS</li>
+            <li>3-year parts &amp; labor warranty</li>
+          </ul>
+          <a
+            href="#contact"
+            class="btn-primary"
+            style="width: 100%; display: block; text-align: center"
+            >Discuss deployment</a
           >
         </div>
 
         <div class="pricing-card">
           <h3>Sovereign</h3>
-          <div class="subtext">50+ user deployment</div>
+          <div class="subtext">High-availability cluster</div>
           <ul class="pricing-features">
-            <li>50+ concurrent users</li>
-            <li>200+ tokens/sec performance</li>
-            <li>50M+ pages capacity</li>
-            <li>4× Ultra GPUs (320GB)</li>
-            <li>16TB SSD + 64TB HDD</li>
-            <li>Multi-site replication</li>
-            <li>5-year white-glove support</li>
+            <li>Dual-node, zero-downtime failover</li>
+            <li>4× NVIDIA RTX PRO 6000 Blackwell</li>
+            <li>384GB total VRAM</li>
+            <li>1TB ECC RAM across nodes</li>
+            <li>InfiniBand HDR 200Gb/s fabric</li>
+            <li>16TB NVMe + 64TB SAS archive</li>
+            <li>For contractual SLA / critical uptime</li>
           </ul>
           <a
             href="#contact"
             class="btn-secondary"
             style="width: 100%; display: block; text-align: center"
-            >Get Started</a
+            >Discuss deployment</a
           >
         </div>
       </div>
