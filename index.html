@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Onsite AI | On-Premises AI Infrastructure</title>
+    <title>Onsite AI · On-Premises AI Infrastructure</title>
     <meta
       name="description"
       content="Sovereign, on-premises AI infrastructure. Complete privacy, unlimited usage, and enterprise-grade performance running entirely on your own hardware."
@@ -19,17 +19,19 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Onsite AI" />
-    <meta property="og:title" content="Onsite AI | On-Premises AI Infrastructure" />
+    <meta property="og:title" content="Onsite AI · On-Premises AI Infrastructure" />
     <meta
       property="og:description"
       content="Sovereign, on-premises AI infrastructure. Complete privacy, unlimited usage, and enterprise-grade performance running entirely on your own hardware."
     />
     <meta property="og:url" content="https://onsiteai.network/" />
     <meta property="og:image" content="https://onsiteai.network/favicon.svg" />
+    <meta property="og:image:alt" content="Onsite AI logo mark" />
+    <meta property="og:image:type" content="image/svg+xml" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Onsite AI | On-Premises AI Infrastructure" />
+    <meta name="twitter:title" content="Onsite AI · On-Premises AI Infrastructure" />
     <meta
       name="twitter:description"
       content="Sovereign, on-premises AI infrastructure. Complete privacy, unlimited usage, and enterprise-grade performance running entirely on your own hardware."
@@ -124,1686 +126,1001 @@
       }
     </script>
 
-    <meta name="theme-color" content="#05070c" />
+    <meta name="theme-color" content="#F4F1E9" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
+      *, *::before, *::after { box-sizing: border-box; }
       :root {
-        /* Accent: electric Amber → Copper (primary signal) */
-        --accent: #ffb627;
-        --accent-2: #ff6a3d;
-        --accent-soft: rgba(255, 182, 39, 0.14);
-        --accent-glow: rgba(255, 106, 61, 0.32);
+        --bone:        #F4F1E9;
+        --bone-50:     #FBFAF6;
+        --bone-200:    #ECE7D9;
+        --bone-300:    #DFD9C8;
+        --ink:         #0E1110;
+        --ink-700:     #2A2F2C;
+        --ink-500:     #5C6259;
+        --ink-300:     #A8AEA4;
+        --ink-200:     #C9CEC4;
+        --ink-100:     #E4E7DF;
+        --amber:       #E89019;
+        --amber-100:   #FCE6BC;
+        --amber-500:   #C9740A;
 
-        /* Tech accent: electric cyan (data / network / circuitry) */
-        --tech: #29e7e0;
-        --tech-glow: rgba(41, 231, 224, 0.3);
+        --font-sans:    "IBM Plex Sans", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        --font-display: "IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif;
+        --font-mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-        /* Base: cool blue-charcoal blacks with depth */
-        --darker: #05070c;
-        --dark: #0a0e16;
-        --mid-dark: #10151f;
-        --mid-gray: #161c29;
-        --hairline: rgba(120, 180, 220, 0.1);
-        --hairline-strong: rgba(140, 200, 235, 0.2);
-
-        /* Text */
-        --white: #f4f7fb;
-        --lighter: #e7edf5;
-        --light-gray: #b3bccb;
-        --gray: #7c8798;
-
-        --grad: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+        --container: 1180px;
       }
 
+      html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
       body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.65;
-        color: var(--light-gray);
-        background: var(--darker);
-        overflow-x: hidden;
-        font-size: 17px;
-        letter-spacing: -0.011em;
-        font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: 15.5px;
+        line-height: 1.55;
+        color: var(--ink);
+        background: var(--bone);
       }
+      ::selection { background: var(--amber); color: var(--ink); }
 
-      ::selection {
-        background: rgba(255, 176, 32, 0.25);
-        color: var(--white);
-      }
-
-      a:focus-visible,
-      button:focus-visible {
-        outline: 2px solid var(--accent);
-        outline-offset: 3px;
-        border-radius: 4px;
-      }
-
-      /* Navigation */
-      nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: rgba(10, 14, 22, 0.6);
-        backdrop-filter: blur(24px) saturate(160%);
-        border-bottom: 1px solid var(--hairline);
-        z-index: 1000;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      nav.scrolled {
-        background: rgba(5, 7, 12, 0.92);
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
-        border-bottom-color: var(--hairline-strong);
-      }
-
-      .nav-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 1.2rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .logo {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: var(--white);
-        text-decoration: none;
-        letter-spacing: -0.03em;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.6rem;
-        transition: transform 0.3s ease;
-      }
-
-      .logo:hover {
-        transform: translateY(-1px);
-      }
-
-      .logo-mark {
-        width: 26px;
-        height: 26px;
-        flex-shrink: 0;
-        filter: drop-shadow(0 0 6px var(--accent-glow));
-        transition: transform 0.3s ease;
-      }
-
-      .logo:hover .logo-mark {
-        transform: rotate(-8deg) scale(1.05);
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 2.5rem;
-        list-style: none;
-        align-items: center;
-      }
-
-      .nav-links a {
-        text-decoration: none;
-        color: var(--light-gray);
-        font-weight: 500;
-        transition: color 0.25s ease;
-        font-size: 0.95rem;
-        letter-spacing: -0.01em;
-        position: relative;
-      }
-
-      .nav-links a:not(.btn-primary):hover {
-        color: var(--white);
-      }
-
-      .nav-links a:not(.btn-primary)::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -6px;
-        width: 0;
-        height: 2px;
-        background: var(--grad);
-        transition: width 0.3s ease;
-      }
-
-      .nav-links a:not(.btn-primary):hover::after {
-        width: 100%;
-      }
-
-      .btn-primary {
-        background: var(--grad);
-        color: #1a1206 !important;
-        padding: 0.75rem 2rem;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border: none;
-        cursor: pointer;
-        font-size: 0.95rem;
-        letter-spacing: -0.01em;
-        box-shadow: 0 4px 14px rgba(255, 137, 73, 0.3);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 26px rgba(255, 137, 73, 0.5);
-      }
-
-      .btn-secondary {
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--white);
-        padding: 0.75rem 2rem;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid var(--hairline-strong);
-        font-size: 0.95rem;
-        letter-spacing: -0.01em;
-        backdrop-filter: blur(10px);
-      }
-
-      .btn-secondary:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-        background: rgba(255, 176, 32, 0.06);
-        transform: translateY(-2px);
-      }
-
-      .mobile-menu {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        background: none;
-        border: none;
-        padding: 4px;
-      }
-
-      .mobile-menu span {
-        width: 25px;
-        height: 2px;
-        background: var(--white);
-        transition: 0.3s;
-        display: block;
-      }
-
-      /* Hero Section */
-      .hero {
-        background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);
-        color: white;
-        padding: 14rem 2rem 12rem;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-          ellipse at center,
-          var(--accent-glow),
-          transparent 50%
-        );
-        animation: pulse 8s ease-in-out infinite;
-        pointer-events: none;
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(1);
-          opacity: 0.6;
-        }
-        50% {
-          transform: scale(1.1);
-          opacity: 0.95;
-        }
-      }
-
-      #hero-canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-      }
-
-      .hero-content {
-        max-width: 950px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-      }
+      .container { max-width: var(--container); margin: 0 auto; padding: 0 28px; }
 
       .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-500);
+      }
+
+      .btn {
         display: inline-flex;
         align-items: center;
-        gap: 0.6rem;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.8rem;
+        justify-content: center;
+        gap: 8px;
+        font-family: var(--font-sans);
+        font-size: 14px;
         font-weight: 500;
+        line-height: 1;
+        padding: 12px 18px;
+        border-radius: 3px;
+        border: 1px solid transparent;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 140ms cubic-bezier(0.2,0.7,0.2,1),
+                    border-color    140ms cubic-bezier(0.2,0.7,0.2,1),
+                    color           140ms cubic-bezier(0.2,0.7,0.2,1);
+      }
+      .btn-primary { background: var(--ink); color: var(--bone-50); border-color: var(--ink); }
+      .btn-primary:hover { background: var(--ink-700); border-color: var(--ink-700); }
+      .btn-secondary { background: transparent; color: var(--ink); border-color: var(--ink-200); }
+      .btn-secondary:hover { background: var(--bone-200); border-color: var(--ink-300); }
+      .btn-arrow::after {
+        content: "→";
+        font-family: var(--font-mono);
+        transition: transform 180ms cubic-bezier(0.2,0.7,0.2,1);
+      }
+      .btn-arrow:hover::after { transform: translateX(3px); }
+
+      /* ── Nav ────────────────────────────────────────────────────── */
+      nav.site {
+        position: sticky; top: 0; z-index: 50;
+        background: rgba(244, 241, 233, 0.78);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--ink-100);
+      }
+      nav.site .container { display: flex; align-items: center; gap: 32px; height: 64px; }
+      .brand {
+        display: inline-flex; align-items: center; gap: 10px;
+        text-decoration: none;
+        font-family: var(--font-sans); font-weight: 600; font-size: 15px;
+        letter-spacing: -0.01em; color: var(--ink);
+      }
+      .brand-mark {
+        width: 22px; height: 22px; background: var(--ink); border-radius: 3px;
+        display: inline-flex; align-items: center; justify-content: center; position: relative;
+      }
+      .brand-mark::before {
+        content: ""; width: 8px; height: 8px;
+        border: 1.5px solid var(--bone-50); border-radius: 99px; background: transparent;
+      }
+      .brand-mark::after {
+        content: ""; position: absolute; top: 4px; right: 4px;
+        width: 4px; height: 4px; background: var(--amber); border-radius: 99px;
+      }
+      .brand-text { white-space: nowrap; display: inline-flex; flex-direction: column; line-height: 1; gap: 2px; }
+      .brand-text .ai { color: var(--ink-500); font-weight: 500; }
+      .brand-text .parent {
+        font-family: var(--font-mono);
+        font-size: 9.5px;
+        font-weight: 400;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: var(--accent);
-        padding: 0.45rem 1rem;
-        border: 1px solid var(--hairline-strong);
-        border-radius: 999px;
-        background: rgba(255, 176, 32, 0.04);
-        margin-bottom: 2rem;
-        animation: fadeInUp 0.8s ease-out;
+        color: var(--ink-500);
       }
+      footer .brand-text .parent { color: var(--ink-300); }
 
-      .eyebrow .dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: var(--tech);
-        box-shadow: 0 0 10px var(--tech);
-        animation: blink 2.4s ease-in-out infinite;
+      nav.site ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 22px; flex: 1; }
+      nav.site a.link {
+        font-size: 13.5px; color: var(--ink-500); text-decoration: none;
+        transition: color 140ms cubic-bezier(0.2,0.7,0.2,1);
       }
+      nav.site a.link:hover { color: var(--ink); }
 
-      @keyframes blink {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.35;
-        }
+      /* ── Hero ───────────────────────────────────────────────────── */
+      .hero { position: relative; padding: 112px 0 104px; overflow: hidden; }
+      .hero::before {
+        content: ""; position: absolute; inset: 0;
+        background-image:
+          linear-gradient(to right, var(--ink-100) 1px, transparent 1px),
+          linear-gradient(to bottom, var(--ink-100) 1px, transparent 1px);
+        background-size: 56px 56px;
+        background-position: center top;
+        mask-image: radial-gradient(ellipse 80% 70% at 30% 35%, #000 35%, transparent 80%);
+        -webkit-mask-image: radial-gradient(ellipse 80% 70% at 30% 35%, #000 35%, transparent 80%);
+        opacity: 0.7; pointer-events: none;
       }
-
-      .hero h1 {
-        font-family: "Space Grotesk", -apple-system, sans-serif;
-        font-size: 4rem;
-        margin-bottom: 1.5rem;
-        font-weight: 600;
-        line-height: 1.05;
-        color: var(--white);
-        letter-spacing: -0.045em;
-        background: linear-gradient(
-          165deg,
-          var(--white) 0%,
-          rgba(255, 255, 255, 0.88) 45%,
-          rgba(255, 176, 32, 0.85) 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: fadeInUp 0.8s ease-out;
-      }
-
-      .hero p {
-        font-size: 1.35rem;
-        margin-bottom: 3rem;
-        color: var(--light-gray);
-        max-width: 750px;
-        margin-left: auto;
-        margin-right: auto;
-        font-weight: 400;
-        line-height: 1.7;
-        animation: fadeInUp 0.8s ease-out 0.2s backwards;
-      }
-
-      .hero-buttons {
-        display: flex;
-        gap: 1.5rem;
-        justify-content: center;
-        flex-wrap: wrap;
-        animation: fadeInUp 0.8s ease-out 0.4s backwards;
-      }
-
-      /* Sections */
-      .section {
-        padding: 7rem 2rem;
-        max-width: 1300px;
-        margin: 0 auto;
-        background: var(--darker);
-      }
-
-      .section-title {
-        font-family: "Space Grotesk", -apple-system, sans-serif;
-        text-align: center;
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        color: var(--white);
-        font-weight: 600;
-        letter-spacing: -0.045em;
-        line-height: 1.2;
-      }
-
-      .section-subtitle {
-        text-align: center;
-        font-size: 1.2rem;
-        color: var(--gray);
-        margin-bottom: 4rem;
-        font-weight: 400;
-      }
-
-      .features-grid {
+      .hero .container { position: relative; }
+      .hero-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-      }
-
-      .feature-card {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.045) 0%,
-          rgba(255, 255, 255, 0.015) 100%
-        );
-        padding: 2.5rem;
-        border-radius: 16px;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid var(--hairline);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .feature-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          var(--accent-soft) 0%,
-          transparent 60%
-        );
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-
-      .feature-card:hover::before {
-        opacity: 1;
-      }
-
-      .feature-card:hover {
-        border-color: var(--hairline-strong);
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
-          0 0 0 1px rgba(255, 176, 32, 0.15);
-      }
-
-      .feature-icon {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-        opacity: 0.95;
-        display: inline-block;
-        transition: transform 0.4s ease;
-      }
-
-      .feature-card:hover .feature-icon {
-        transform: scale(1.1) rotate(5deg);
-      }
-
-      .feature-card h3 {
-        font-size: 1.2rem;
-        margin-bottom: 0.75rem;
-        color: var(--white);
-        letter-spacing: -0.02em;
-        font-weight: 600;
-        position: relative;
-      }
-
-      .feature-card p.industry-q {
-        color: var(--accent);
-        font-weight: 600;
-        font-size: 0.92rem;
-        line-height: 1.45;
-        margin-bottom: 0.6rem;
-      }
-
-      .feature-card p {
-        color: var(--gray);
-        line-height: 1.7;
-        font-size: 0.95rem;
-        font-weight: 400;
-        position: relative;
-      }
-
-      /* Dark Features Section */
-      .features-dark {
-        background: linear-gradient(180deg, var(--dark) 0%, var(--darker) 100%);
-        color: white;
-        padding: 7rem 2rem;
-        border-top: 1px solid var(--hairline);
-        position: relative;
-      }
-
-      .features-dark::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, var(--accent), transparent);
-        opacity: 0.6;
-      }
-
-      /* Pricing Section */
-      .pricing-bg {
-        background: var(--darker);
-        border-top: 1px solid var(--hairline);
-      }
-
-      .pricing-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-      }
-
-      .pricing-card {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.045) 0%,
-          rgba(255, 255, 255, 0.015) 100%
-        );
-        border-radius: 16px;
-        padding: 2.5rem;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        margin-top: 2rem;
-        border: 1px solid var(--hairline);
-      }
-
-      .pricing-card.featured {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 176, 32, 0.12) 0%,
-          rgba(255, 137, 73, 0.04) 100%
-        );
-        border-color: var(--accent);
-        transform: scale(1.05);
-      }
-
-      .pricing-card:hover {
-        transform: translateY(-8px);
-        border-color: var(--hairline-strong);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      }
-
-      .pricing-card.featured:hover {
-        transform: translateY(-8px) scale(1.05);
-        box-shadow: 0 24px 48px rgba(255, 137, 73, 0.25);
-      }
-
-      .pricing-badge {
-        background: var(--grad);
-        color: #1a1206;
-        padding: 0.4rem 1rem;
-        border-radius: 20px;
-        font-size: 0.7rem;
-        display: inline-block;
-        position: absolute;
-        top: -1rem;
-        left: 50%;
-        transform: translateX(-50%);
-        white-space: nowrap;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        box-shadow: 0 4px 14px rgba(255, 137, 73, 0.4);
-      }
-
-      .pricing-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-        color: var(--white);
-        letter-spacing: -0.02em;
-        font-weight: 700;
-      }
-
-      .pricing-card .subtext {
-        color: var(--gray);
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem;
-        font-weight: 400;
-      }
-
-      .pricing-features {
-        list-style: none;
-        margin: 1.5rem 0;
-        flex-grow: 1;
-      }
-
-      .pricing-features li {
-        padding: 0.7rem 0;
-        color: var(--light-gray);
-        display: flex;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+        gap: 56px;
         align-items: center;
-        gap: 0.75rem;
-        font-size: 0.92rem;
-        font-weight: 400;
+      }
+      .hero h1 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: clamp(44px, 5.4vw, 72px);
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+        margin: 0;
+        max-width: 14ch;
+        text-wrap: balance;
+      }
+      .hero h1 .mark-line {
+        background: var(--amber);
+        padding: 0 8px;
+        white-space: nowrap;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+      }
+      .hero p.lede {
+        margin: 24px 0 0;
+        font-size: 17px; line-height: 1.5;
+        color: var(--ink-700);
+        max-width: 46ch;
+        text-wrap: pretty;
+      }
+      .hero-actions { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+      .hero-visual {
+        position: relative;
+        align-self: center;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: min(0px, calc((1180px - 100vw) / 2 - 28px));
+      }
+      .hero-visual img {
+        height: clamp(480px, 72vh, 720px);
+        width: auto;
+        max-width: 100%;
+        display: block;
       }
 
-      .pricing-features li::before {
-        content: "✓";
-        color: var(--accent);
-        font-weight: 700;
-        font-size: 1.2rem;
-        flex-shrink: 0;
+      /* ── Generic section heads ──────────────────────────────────── */
+      section.std { padding: 112px 0; border-top: 1px solid var(--ink-100); }
+      .section-head {
+        display: grid; grid-template-columns: 1fr 1.4fr; gap: 56px;
+        align-items: end; margin-bottom: 48px;
+      }
+      .section-head h2 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: clamp(34px, 4vw, 48px);
+        letter-spacing: -0.022em;
+        line-height: 1.04;
+        margin: 12px 0 0;
+        max-width: 22ch;
+        text-wrap: balance;
+      }
+      .section-head .intro {
+        color: var(--ink-500); font-size: 16px; line-height: 1.55; max-width: 58ch;
       }
 
-      /* ROI Section */
-      .roi-section {
-        background: linear-gradient(180deg, var(--dark) 0%, var(--darker) 100%);
-        color: white;
-        padding: 7rem 2rem;
-        text-align: center;
-        border-top: 1px solid var(--hairline);
-      }
-
-      .roi-stats {
+      /* ── Why · benefits list ────────────────────────────────────── */
+      .why { background: var(--bone-50); }
+      .benefits {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 3rem auto 0;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        border-top: 2px solid var(--ink);
+      }
+      .benefit {
+        padding: 28px 0;
+        border-bottom: 1px solid var(--ink-100);
+      }
+      .benefit:nth-child(odd)  { padding-right: 28px; border-right: 1px solid var(--ink-100); }
+      .benefit:nth-child(even) { padding-left: 28px; }
+      .benefit h3 {
+        font-family: var(--font-display); font-weight: 600;
+        font-size: 20px; letter-spacing: -0.008em;
+        margin: 0 0 6px;
+      }
+      .benefit p { margin: 0; color: var(--ink-700); font-size: 14.5px; line-height: 1.55; text-wrap: pretty; }
+
+      /* ── Complete feature set ───────────────────────────────────── */
+      .features { background: var(--bone); }
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        border-top: 1px solid var(--ink-100);
+        border-left: 1px solid var(--ink-100);
+      }
+      .feature {
+        padding: 28px 24px;
+        border-right: 1px solid var(--ink-100);
+        border-bottom: 1px solid var(--ink-100);
+        background: var(--bone-50);
+        display: flex; flex-direction: column; gap: 8px;
+      }
+      .feature .ico {
+        width: 28px; height: 28px;
+        color: var(--ink);
+        margin-bottom: 4px;
+      }
+      .feature h4 {
+        font-family: var(--font-sans);
+        font-size: 14.5px; font-weight: 600;
+        letter-spacing: -0.008em;
+        margin: 0;
+        color: var(--ink);
+      }
+      .feature p {
+        margin: 0;
+        font-size: 13.5px; line-height: 1.55;
+        color: var(--ink-500);
+        text-wrap: pretty;
       }
 
+      /* ── Industries ─────────────────────────────────────────────── */
+      .industries { background: var(--bone-50); }
+      .industry-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+        border-top: 2px solid var(--ink);
+      }
+      .industry {
+        padding: 32px 32px 32px 0;
+        border-bottom: 1px solid var(--ink-100);
+        display: flex; flex-direction: column; gap: 12px;
+      }
+      .industry:nth-child(even) { padding-left: 32px; padding-right: 0; }
+      .industry:nth-child(odd)  { border-right: 1px solid var(--ink-100); }
+      .industry .ico {
+        width: 32px; height: 32px;
+        color: var(--ink);
+        margin-bottom: 2px;
+      }
+      .industry h3 {
+        font-family: var(--font-display); font-weight: 600;
+        font-size: 22px; letter-spacing: -0.008em;
+        margin: 0;
+        color: var(--ink);
+      }
+      .industry .question {
+        font-family: var(--font-sans);
+        font-size: 14.5px; font-weight: 500;
+        color: var(--amber-500);
+        line-height: 1.45;
+        margin: 0;
+        text-wrap: pretty;
+      }
+      .industry p.body {
+        margin: 0;
+        color: var(--ink-700);
+        font-size: 14.5px; line-height: 1.55;
+        text-wrap: pretty;
+      }
+
+      /* ── Packages ───────────────────────────────────────────────── */
+      .packages { background: var(--bone); }
+      .package-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .package {
+        background: var(--bone-50);
+        border: 1px solid var(--ink-100);
+        border-radius: 4px;
+        padding: 24px 22px;
+        display: flex; flex-direction: column; gap: 14px;
+        position: relative;
+      }
+      .package.featured {
+        background: var(--ink);
+        color: var(--bone-50);
+        border-color: var(--ink);
+      }
+      .package .badge {
+        position: absolute; top: -10px; left: 22px;
+        background: var(--amber); color: var(--ink);
+        font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+        letter-spacing: 0.14em; text-transform: uppercase;
+        padding: 3px 8px; border-radius: 2px;
+      }
+      .package h3 {
+        font-family: var(--font-display); font-weight: 600;
+        font-size: 22px; letter-spacing: -0.008em;
+        margin: 0;
+      }
+      .package .sub {
+        font-family: var(--font-mono); font-size: 11px;
+        letter-spacing: 0.04em; color: var(--ink-500);
+        text-transform: uppercase;
+      }
+      .package.featured .sub { color: var(--ink-300); }
+      .package ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+      .package li {
+        font-size: 13px; line-height: 1.45;
+        padding-left: 16px; position: relative;
+        color: var(--ink-700);
+      }
+      .package.featured li { color: var(--bone-200); }
+      .package li::before {
+        content: ""; position: absolute; left: 0; top: 7px;
+        width: 8px; height: 8px;
+        border-bottom: 1.5px solid var(--amber);
+        border-right: 1.5px solid var(--amber);
+        transform: rotate(45deg) translate(-1px, -1px);
+      }
+      .package .cta { margin-top: auto; }
+      .package .btn-secondary { width: 100%; }
+      .package.featured .btn-primary { background: var(--amber); color: var(--ink); border-color: var(--amber); width: 100%; }
+      .package.featured .btn-primary:hover { background: #F2A23A; border-color: #F2A23A; }
+
+      /* ── ROI ───────────────────────────────────────────────────── */
+      .roi {
+        background: var(--ink);
+        color: var(--bone-50);
+        border-top: 1px solid #000;
+        padding: 112px 0;
+      }
+      .roi .eyebrow { color: var(--ink-300); }
+      .roi h2 {
+        font-family: var(--font-display); font-weight: 600;
+        font-size: clamp(34px, 4vw, 48px);
+        letter-spacing: -0.022em; line-height: 1.04;
+        margin: 12px 0 0;
+        max-width: 22ch;
+        text-wrap: balance;
+      }
+      .roi .head {
+        display: grid; grid-template-columns: 1fr 1.4fr; gap: 56px;
+        align-items: end; margin-bottom: 56px;
+      }
+      .roi .intro { color: var(--ink-300); font-size: 16px; line-height: 1.55; max-width: 58ch; }
+      .roi-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        border-top: 1px solid rgba(255,255,255,0.12);
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+      }
       .roi-stat {
-        padding: 2.5rem;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.045) 0%,
-          rgba(255, 255, 255, 0.015) 100%
-        );
-        border-radius: 16px;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid var(--hairline);
-        position: relative;
-        overflow: hidden;
+        padding: 32px 28px;
+        border-right: 1px solid rgba(255,255,255,0.08);
+        display: flex; flex-direction: column; gap: 10px;
       }
-
-      .roi-stat::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          var(--accent-soft) 0%,
-          transparent 60%
-        );
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-
-      .roi-stat:hover::before {
-        opacity: 1;
-      }
-
-      .roi-stat:hover {
-        border-color: var(--hairline-strong);
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      }
-
-      .roi-stat .number {
-        font-family: "Space Grotesk", -apple-system, sans-serif;
-        font-size: 3.5rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        background: var(--grad);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        letter-spacing: -0.03em;
-        position: relative;
-        font-feature-settings: "tnum" 1, "zero" 1;
-      }
-
+      .roi-stat:last-child { border-right: 0; }
       .roi-stat .label {
-        font-size: 0.95rem;
-        color: var(--gray);
-        font-weight: 400;
-        position: relative;
+        font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+        letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--ink-300);
       }
-
-      /* CTA Section */
-      .cta-section {
-        background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);
-        color: white;
-        padding: 8rem 2rem;
-        text-align: center;
-        border-top: 1px solid var(--hairline);
-        position: relative;
-        overflow: hidden;
+      .roi-stat .num {
+        font-family: var(--font-mono);
+        font-feature-settings: "tnum" 1, "zero" 1;
+        font-size: 56px; font-weight: 500;
+        line-height: 1; letter-spacing: -0.02em;
+        color: var(--bone-50);
       }
+      .roi-stat .num .accent { color: var(--amber); }
+      .roi-stat .sub { font-family: var(--font-mono); font-size: 11px; color: var(--ink-300); letter-spacing: 0.04em; }
 
-      .cta-section::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-          ellipse at center,
-          rgba(255, 176, 32, 0.14),
-          transparent 70%
-        );
-        pointer-events: none;
+      /* ── CTA ────────────────────────────────────────────────────── */
+      .cta { background: var(--amber); color: var(--ink); border-top: 1px solid var(--amber-500); }
+      .cta .container {
+        padding-top: 72px; padding-bottom: 72px;
+        display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px;
+        align-items: end;
       }
-
-      .cta-section h2 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 2.75rem;
-        margin-bottom: 1rem;
-        letter-spacing: -0.03em;
-        color: var(--white);
+      .cta .eyebrow { color: var(--ink-700); }
+      .cta h2 {
+        font-family: var(--font-display);
         font-weight: 600;
-        position: relative;
+        font-size: clamp(34px, 4vw, 50px);
+        letter-spacing: -0.022em;
+        line-height: 1.04;
+        margin: 12px 0 0;
+        color: var(--ink);
+        max-width: 22ch;
+        text-wrap: balance;
       }
-
-      .cta-section p {
-        font-size: 1.2rem;
-        margin-bottom: 3rem;
-        color: var(--gray);
-        font-weight: 400;
-        position: relative;
-        max-width: 620px;
-        margin-left: auto;
-        margin-right: auto;
+      .cta p {
+        margin: 16px 0 0;
+        font-size: 16px;
+        line-height: 1.55;
+        color: var(--ink);
+        max-width: 50ch;
+        text-wrap: pretty;
       }
+      .cta .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+      .cta .btn-primary { background: var(--ink); color: var(--bone-50); border-color: var(--ink); }
+      .cta .btn-primary:hover { background: var(--ink-700); border-color: var(--ink-700); }
+      .cta .btn-secondary { color: var(--ink); border-color: var(--ink); }
+      .cta .btn-secondary:hover { background: rgba(0,0,0,0.06); }
 
-      /* Footer */
-      footer {
-        background: var(--darker);
-        color: white;
-        padding: 4rem 2rem 2rem;
-        border-top: 1px solid var(--hairline);
-      }
-
-      .footer-content {
-        max-width: 1300px;
-        margin: 0 auto;
+      /* ── Footer ─────────────────────────────────────────────────── */
+      footer { background: var(--ink); color: var(--bone-200); padding: 56px 0 28px; }
+      footer .container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
-        margin-bottom: 3rem;
+        grid-template-columns: 1.6fr 1fr 1fr;
+        gap: 40px;
       }
-
-      .footer-section h4 {
-        margin-bottom: 1.25rem;
-        color: var(--white);
-        letter-spacing: -0.01em;
-        font-size: 1rem;
-        font-weight: 600;
+      footer .brand { color: var(--bone-50); }
+      footer .brand-mark { background: var(--bone-50); }
+      footer .brand-mark::before { border-color: var(--ink); }
+      footer .brand-text { color: var(--bone-50); }
+      footer .brand-text .ai { color: var(--ink-300); }
+      footer h4 {
+        font-family: var(--font-mono);
+        font-size: 11px; font-weight: 500;
+        letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--ink-300);
+        margin: 0 0 14px;
       }
-
-      .footer-section p,
-      .footer-section a {
-        color: var(--gray);
+      footer p, footer a {
+        color: var(--bone-200);
+        font-size: 13.5px;
         text-decoration: none;
         display: block;
-        margin-bottom: 0.75rem;
-        font-size: 0.92rem;
-        font-weight: 400;
-        transition: color 0.2s ease;
+        margin: 0 0 8px;
+        line-height: 1.5;
+      }
+      footer .desc { max-width: 38ch; margin-top: 14px; color: var(--ink-300); }
+      footer a:hover { color: var(--amber); }
+      footer .legal {
+        border-top: 1px solid rgba(255,255,255,0.08);
+        margin-top: 40px;
+        padding-top: 20px;
+        display: flex; justify-content: space-between; gap: 16px;
+        font-family: var(--font-mono); font-size: 11px;
+        letter-spacing: 0.04em; color: var(--ink-300);
       }
 
-      .footer-section a:hover {
-        color: var(--accent);
+      /* ── Responsive ─────────────────────────────────────────────── */
+      @media (max-width: 980px) {
+        .feature-grid    { grid-template-columns: repeat(2, 1fr); }
+        .package-grid    { grid-template-columns: repeat(2, 1fr); }
+        .roi-grid        { grid-template-columns: repeat(2, 1fr); }
+        .roi-stat:nth-child(2) { border-right: 0; }
+        .roi-stat:nth-child(1), .roi-stat:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.08); }
       }
-
-      .footer-bottom {
-        text-align: center;
-        padding-top: 2rem;
-        border-top: 1px solid var(--hairline);
-        color: var(--gray);
-        font-size: 0.88rem;
+      @media (max-width: 880px) {
+        .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+        .hero-visual { margin-right: 0; justify-content: center; }
+        .hero-visual img { height: auto; width: 100%; max-width: 480px; }
       }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background: rgba(5, 7, 12, 0.98);
-          flex-direction: column;
-          padding: 1.5rem;
-          border-top: 1px solid var(--hairline);
-        }
-
-        .nav-links.active {
-          display: flex;
-        }
-
-        .mobile-menu {
-          display: flex;
-        }
-
-        .hero {
-          padding: 10rem 2rem 8rem;
-        }
-
-        .hero h1 {
-          font-size: 2.5rem;
-        }
-
-        .hero p {
-          font-size: 1.1rem;
-        }
-
-        .pricing-card.featured {
-          transform: scale(1);
-        }
-
-        .pricing-card.featured:hover {
-          transform: translateY(-8px);
-        }
-
-        .section-title {
-          font-size: 2.25rem;
-        }
-
-        .section {
-          padding: 5rem 2rem;
-        }
+      @media (max-width: 720px) {
+        nav.site ul { display: none; }
+        .hero { padding: 88px 0 80px; }
+        .section-head, .roi .head { grid-template-columns: 1fr; gap: 20px; }
+        .benefits        { grid-template-columns: 1fr; }
+        .benefit:nth-child(odd) { padding-right: 0; border-right: 0; }
+        .benefit:nth-child(even) { padding-left: 0; }
+        .industry-grid   { grid-template-columns: 1fr; }
+        .industry:nth-child(odd) { padding-right: 0; border-right: 0; }
+        .industry:nth-child(even) { padding-left: 0; }
+        .feature-grid    { grid-template-columns: 1fr; }
+        .package-grid    { grid-template-columns: 1fr; }
+        .roi-grid        { grid-template-columns: 1fr; }
+        .roi-stat { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .roi-stat:last-child { border-bottom: 0; }
+        .cta .container  { grid-template-columns: 1fr; }
+        footer .container { grid-template-columns: 1fr 1fr; }
       }
-
-      /* Animations */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(40px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .fade-in {
-        animation: fadeInUp 0.8s ease-out;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-          animation-duration: 0.001ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.001ms !important;
-          scroll-behavior: auto !important;
-        }
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      /* Benefits List */
-      .benefits-list {
-        max-width: 950px;
-        margin: 3rem auto;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.045) 0%,
-          rgba(255, 255, 255, 0.015) 100%
-        );
-        padding: 3rem;
-        border-radius: 16px;
-        border: 1px solid var(--hairline);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .benefits-list::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 176, 32, 0.05) 0%,
-          transparent 60%
-        );
-        pointer-events: none;
-      }
-
-      .benefits-list ul {
-        list-style: none;
-        padding: 0;
-        position: relative;
-      }
-
-      .benefits-list li {
-        padding: 1.25rem 0;
-        font-size: 1.05rem;
-        line-height: 1.7;
-        display: flex;
-        align-items: flex-start;
-        gap: 1.25rem;
-        font-weight: 400;
-        transition: transform 0.3s ease;
-        border-bottom: 1px solid var(--hairline);
-      }
-
-      .benefits-list li:last-child {
-        border-bottom: none;
-      }
-
-      .benefits-list li:hover {
-        transform: translateX(8px);
-      }
-
-      .check {
-        color: var(--accent);
-        font-weight: 700;
-        font-size: 1.4rem;
-        flex-shrink: 0;
-        background: var(--grad);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .benefits-list strong {
-        color: var(--white);
-        letter-spacing: -0.01em;
-        font-weight: 600;
-      }
-
-      .list-item-header {
-        display: flex;
-        gap: 1rem;
-        align-items: start;
-      }
-
-      .list-item {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 2rem;
-      }
-
-      .list-item p {
-        margin: 0;
-        max-width: 60%;
-        color: var(--light-gray);
-      }
-
-      @media (max-width: 768px) {
-        .benefits-list {
-          padding: 2rem;
-        }
-
-        .benefits-list li {
-          font-size: 0.95rem;
-        }
-
-        .list-item {
-          display: flex;
-          flex-direction: column;
-          justify-content: start;
-          gap: 0.75rem;
-        }
-
-        .list-item-header {
-          align-items: center;
-        }
-
-        .list-item p {
-          max-width: 100%;
-        }
+      @media (max-width: 480px) {
+        footer .container { grid-template-columns: 1fr; }
+        footer .legal { flex-direction: column; align-items: flex-start; gap: 6px; }
       }
     </style>
   </head>
   <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-      <div class="nav-container">
-        <a href="#" class="logo">
-          <svg
-            class="logo-mark"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 64 64"
-            fill="none"
-            stroke="#ffb627"
-            stroke-width="3"
-            stroke-linejoin="round"
-            stroke-linecap="round"
-            aria-hidden="true"
-          >
-            <polygon points="32,6 54.5,19 54.5,45 32,58 9.5,45 9.5,19"></polygon>
-            <path d="M27 24 L20 40 M27 24 L34 40 M22.625 34 L31.375 34"></path>
-            <path d="M41 24 L41 40 M38 24 L44 24 M38 40 L44 40"></path>
-          </svg>
-          Onsite AI</a
-        >
-        <button
-          class="mobile-menu"
-          onclick="toggleMenu()"
-          aria-label="Toggle navigation menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#features">Capabilities</a></li>
-          <li><a href="#industries">Industries</a></li>
-          <li><a href="#pricing">Deployment models</a></li>
-          <li><a href="#roi">Value realization</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="mailto:contact@onsiteai.network" class="btn-primary">Contact</a></li>
+
+    <nav class="site" aria-label="Primary">
+      <div class="container">
+        <a href="#" class="brand" aria-label="Onsite AI home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">
+            <span><span style="font-weight:600">Onsite</span> <span class="ai">AI</span></span>
+            <span class="parent">by Inpactive</span>
+          </span>
+        </a>
+        <ul>
+          <li><a class="link" href="#capabilities">Capabilities</a></li>
+          <li><a class="link" href="#industries">Industries</a></li>
+          <li><a class="link" href="#pricing">Deployment models</a></li>
+          <li><a class="link" href="#roi">Value realization</a></li>
+          <li><a class="link" href="#contact">Contact</a></li>
         </ul>
+        <a class="btn btn-primary" href="mailto:contact@onsiteai.network">Contact</a>
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <canvas id="hero-canvas"></canvas>
-      <div class="hero-content fade-in">
-        <span class="eyebrow"><span class="dot"></span>On-premises · Air-gap ready</span>
-        <h1>Sovereign AI systems<br />for critical operations</h1>
-        <p>
-          Purpose-built intelligence infrastructure for organizations where
-          confidentiality and control are non-negotiable. Deployed behind your
-          firewall. Governed by your policies. Running entirely on your hardware.
-        </p>
-        <div class="hero-buttons">
-          <a href="mailto:contact@onsiteai.network" class="btn-primary">Get in touch</a>
-          <a href="mailto:contact@onsiteai.network" class="btn-secondary"
-            >Discuss requirements</a
-          >
+    <!-- ── Hero ─────────────────────────────────────────────────── -->
+    <header class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <h1>Sovereign AI systems for <span class="mark-line">critical operations</span></h1>
+            <p class="lede">
+              AI infrastructure for organizations that can't send their data to a third-party
+              model. Runs inside your perimeter, on hardware you own, under your access policies.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary btn-arrow" href="mailto:contact@onsiteai.network">Talk to a deployment engineer</a>
+              <a class="btn btn-secondary" href="#capabilities">See what's included</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <picture>
+              <source srcset="assets/hero-rack.avif" type="image/avif" />
+              <img
+                src="assets/hero-rack.png"
+                alt="Onsite AI server rack with cable management"
+                width="880"
+                height="1230"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </picture>
+          </div>
         </div>
       </div>
-    </section>
+    </header>
 
-    <!-- Features / Benefits Section -->
-    <section class="section" id="features">
-      <h2 class="section-title">Why Choose On-Premises AI?</h2>
-      <p class="section-subtitle">
-        Complete control, maximum privacy, unlimited potential
-      </p>
-
-      <div class="benefits-list">
-        <ul>
-          <li class="list-item">
-            <span class="list-item-header">
-              <div class="check">✓</div>
-              <strong>Complete Privacy</strong></span
-            >
-            <p>
-              Your data never leaves your building. Purpose-built for proprietary
-              and confidential matters.
-            </p>
-          </li>
-          <li class="list-item">
-            <span class="list-item-header">
-              <div class="check">✓</div>
-              <strong>Predictable Economics</strong>
-            </span>
-            <p>
-              Unlimited usage with no API fees or token limits. Fixed costs,
-              unlimited value.
-            </p>
-          </li>
-          <li class="list-item">
-            <span class="list-item-header">
-              <div class="check">✓</div>
-              <strong>Enterprise-Grade Performance</strong></span
-            >
-            <p>
-              State-of-the-art language models optimized for your workload
-              patterns and response requirements.
-            </p>
-          </li>
-          <li class="list-item">
-            <span class="list-item-header">
-              <div class="check">✓</div>
-              <strong>Air-Gap Ready</strong></span
-            >
-            <p>
-              Operates fully offline or with precisely controlled network
-              access. You define the security architecture.
-            </p>
-          </li>
-          <li class="list-item">
-            <span class="list-item-header">
-              <div class="check">✓</div>
-              <strong>Advanced Knowledge Retrieval</strong></span
-            >
-            <p>
-              Search and analyze millions of documents instantly using vector
-              embeddings and semantic search (RAG).
-            </p>
-          </li>
-          <li class="list-item">
-            <span class="list-item-header">
-              <div class="check">✓</div>
-              <strong>Continuous Evolution</strong></span
-            >
-            <p>
-              Model updates and capability enhancements deployed on your
-              schedule without service disruption.
-            </p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Complete Feature Set Section -->
-    <section class="features-dark">
-      <div style="max-width: 1200px; margin: 0 auto">
-        <h2 class="section-title">Complete Feature Set</h2>
-        <p class="section-subtitle">
-          Everything you need for enterprise AI deployment
-        </p>
-
-        <div class="features-grid">
-          <div class="feature-card fade-in">
-            <div class="feature-icon">🖥️</div>
-            <h3>Open WebUI Interface</h3>
-            <p>
-              Intuitive, user-friendly interface that your team can start using
-              immediately with minimal training.
-            </p>
+    <!-- ── Why ──────────────────────────────────────────────────── -->
+    <section class="std why" id="capabilities">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Why on-premises AI</span>
+            <h2>The reasons organizations bring AI in-house.</h2>
           </div>
+          <p class="intro">
+            On-premises AI gives you what cloud LLMs can't: data that never crosses your perimeter,
+            usage that doesn't meter, and a deployment posture you fully own.
+          </p>
+        </div>
 
-          <div class="feature-card fade-in">
-            <div class="feature-icon">⚙️</div>
-            <h3>vLLM Inference Engine</h3>
-            <p>
-              High-performance inference engine optimized for speed and
-              efficiency on your hardware.
-            </p>
+        <div class="benefits">
+          <div class="benefit">
+            <h3>Data stays in-building</h3>
+            <p>Inference runs on your hardware. No logs, no telemetry, no training data leakage to a vendor.</p>
           </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">🔀</div>
-            <h3>Multi-Model Support</h3>
-            <p>
-              Run multiple AI models simultaneously. Choose the right model for
-              each task.
-            </p>
+          <div class="benefit">
+            <h3>Predictable economics</h3>
+            <p>Fixed hardware cost, no per-query billing. Usage doesn't meter as adoption grows.</p>
           </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">💬</div>
-            <h3>Conversation History</h3>
-            <p>
-              Complete conversation tracking and history management for seamless
-              workflow continuity.
-            </p>
+          <div class="benefit">
+            <h3>Performance tuned to your workload</h3>
+            <p>Open-weight models sized and quantized for your GPUs. Latency tuned to interactive use.</p>
           </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">🔐</div>
-            <h3>Full Disk Encryption</h3>
-            <p>
-              Military-grade encryption protects your data at rest. Multiple
-              layers of security built-in.
-            </p>
+          <div class="benefit">
+            <h3>Air-gap ready</h3>
+            <p>Runs fully offline, or with controlled egress. Your perimeter, your rules.</p>
           </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">📋</div>
-            <h3>Audit Logging & Trails</h3>
-            <p>
-              Complete audit trails for compliance. Track every query, access,
-              and system change.
-            </p>
+          <div class="benefit">
+            <h3>Search across your whole corpus</h3>
+            <p>Vector and keyword retrieval (RAG) over millions of documents. Answers cite their sources.</p>
           </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">👥</div>
-            <h3>Role-Based Access Control</h3>
-            <p>
-              Granular permissions and access controls. Define exactly who can
-              access what.
-            </p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">🔑</div>
-            <h3>MFA Authentication</h3>
-            <p>
-              Multi-factor authentication ensures only authorized users can
-              access the system.
-            </p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">✅</div>
-            <h3>SOC 2 Ready Architecture</h3>
-            <p>
-              Built with compliance in mind. SOC 2 ready architecture out of the
-              box.
-            </p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">🏢</div>
-            <h3>Active Directory / LDAP</h3>
-            <p>
-              Seamless integration with your existing directory services and
-              authentication systems.
-            </p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">🎫</div>
-            <h3>SSO Integration</h3>
-            <p>
-              Single sign-on support for streamlined access across your
-              organization.
-            </p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">📄</div>
-            <h3>Document Import Tools</h3>
-            <p>
-              Easy-to-use tools for importing and indexing your existing
-              document repositories.
-            </p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">💾</div>
-            <h3>Backup Automation</h3>
-            <p>
-              Automated backup systems ensure your data is always protected and
-              recoverable.
-            </p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">📊</div>
-            <h3>Usage Analytics</h3>
-            <p>
-              Comprehensive analytics dashboard to track usage, performance, and
-              ROI metrics.
-            </p>
+          <div class="benefit">
+            <h3>Updated on your schedule</h3>
+            <p>Signed model bundles applied offline during your change windows. No forced upgrades.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Industries Section -->
-    <section class="section" id="industries">
-      <h2 class="section-title">Built for sectors the cloud can't reach</h2>
-      <p class="section-subtitle">
-        When regulation, classification, or contractual obligation rules out
-        cloud AI, on-premises is the only path to the same capability
-      </p>
-
-      <div class="features-grid">
-        <div class="feature-card fade-in">
-          <div class="feature-icon">🏭</div>
-          <h3>Manufacturing &amp; Industrial</h3>
-          <p class="industry-q">Can manufacturers use AI without sending plant data to the cloud?</p>
-          <p>
-            Plant-floor OT networks are isolated from IT by design, and PLC
-            code, schematics, and SOPs are core process IP. On-prem AI diagnoses
-            faults, captures retiring engineers' knowledge, and bridges shifts
-            — without anything leaving the air gap.
+    <!-- ── Complete Feature Set ─────────────────────────────────── -->
+    <section class="std features">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Included in every deployment</span>
+            <h2>Interface, inference, identity, ingestion — all on-prem.</h2>
+          </div>
+          <p class="intro">
+            Every deployment ships with the full stack your auditors and operators expect.
+            No add-on tiers, no separate licensing.
           </p>
         </div>
 
-        <div class="feature-card fade-in">
-          <div class="feature-icon">🛡️</div>
-          <h3>Defense &amp; Aerospace</h3>
-          <p class="industry-q">Can defense contractors use AI on ITAR-controlled or classified data?</p>
-          <p>
-            ITAR/EAR-controlled technical data and classified programs legally
-            cannot touch a commercial cloud. Run inference inside accredited,
-            air-gapped enclaves while teams query controlled drawings,
-            requirements, and test data under CMMC.
-          </p>
-        </div>
-
-        <div class="feature-card fade-in">
-          <div class="feature-icon">🩺</div>
-          <h3>Healthcare &amp; Life Sciences</h3>
-          <p class="industry-q">Is on-premises AI HIPAA compliant for patient data?</p>
-          <p>
-            HIPAA-protected records, imaging, and clinical notes carry real
-            liability the moment they leave your premises. Keep PHI in-building
-            while clinicians and researchers query the full corpus with a
-            complete audit trail.
-          </p>
-        </div>
-
-        <div class="feature-card fade-in">
-          <div class="feature-icon">⚖️</div>
-          <h3>Legal &amp; Professional Services</h3>
-          <p class="industry-q">Can law firms use AI without breaching attorney-client privilege?</p>
-          <p>
-            Attorney-client privilege, sealed matters, and M&amp;A diligence
-            demand that case files never transit a third-party model. On-prem AI
-            reviews discovery, drafts, and precedent behind your own firewall.
-          </p>
-        </div>
-
-        <div class="feature-card fade-in">
-          <div class="feature-icon">🏦</div>
-          <h3>Financial Services &amp; Banking</h3>
-          <p class="industry-q">Can banks use AI on confidential or material non-public information?</p>
-          <p>
-            Material non-public information, data-residency rules, and examiner
-            scrutiny make cloud inference a compliance risk. Analyze filings,
-            contracts, and risk data with sovereign control and full logging.
-          </p>
-        </div>
-
-        <div class="feature-card fade-in">
-          <div class="feature-icon">🏛️</div>
-          <h3>Government &amp; Public Sector</h3>
-          <p class="industry-q">How can agencies use AI on CUI or classified workloads?</p>
-          <p>
-            CUI and classified workloads require data sovereignty that public
-            cloud cannot guarantee. Deploy on accredited, isolated networks
-            aligned to FedRAMP High and IL5/6 controls.
-          </p>
-        </div>
-
-        <div class="feature-card fade-in">
-          <div class="feature-icon">🔌</div>
-          <h3>Energy &amp; Utilities</h3>
-          <p class="industry-q">Can utilities use AI on NERC CIP or SCADA systems?</p>
-          <p>
-            NERC CIP and SCADA isolation keep critical-infrastructure systems
-            off the public internet. On-prem AI surfaces operational and
-            compliance knowledge without breaching the security perimeter.
-          </p>
-        </div>
-
-        <div class="feature-card fade-in">
-          <div class="feature-icon">🧬</div>
-          <h3>Pharmaceutical &amp; Biotech R&amp;D</h3>
-          <p class="industry-q">Can pharma use AI on proprietary R&amp;D and GxP data?</p>
-          <p>
-            Trade-secret formulations, GxP records, and clinical-trial data are
-            the entire value of the enterprise. Keep proprietary research inside
-            your walls while accelerating literature and protocol review.
-          </p>
+        <div class="feature-grid">
+          <article class="feature">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M3 8 H21 M8 21 H16 M12 17 V21"/></svg>
+            <h4>Open WebUI interface</h4>
+            <p>Familiar chat UI. Teams are productive on day one with no retraining.</p>
+          </article>
+          <article class="feature">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 3 V6 M15 3 V6 M9 18 V21 M15 18 V21 M3 9 H6 M3 15 H6 M18 9 H21 M18 15 H21"/></svg>
+            <h4>vLLM inference engine</h4>
+            <p>Continuous batching and paged attention for high throughput on your GPUs.</p>
+          </article>
+          <article class="feature">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7 H14 L20 7 M20 7 L17 4 M20 7 L17 10 M20 17 H10 L4 17 M4 17 L7 14 M4 17 L7 20"/></svg>
+            <h4>Multi-model support</h4>
+            <p>Serve multiple models in parallel. Route by task, document set, or user policy.</p>
+          </article>
+          <article class="feature">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5 H20 V16 H13 L9 20 V16 H4 Z"/><path d="M8 9 H16 M8 12 H13"/></svg>
+            <h4>Conversation history</h4>
+            <p>Conversations persist per user, searchable and exportable for handoff or review.</p>
+          </article>
+          <article class="feature">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11 V8 A4 4 0 0 1 16 8 V11"/><circle cx="12" cy="15.5" r="1"/></svg>
+            <h4>Full-disk encryption</h4>
+            <p>LUKS / AES-256 at rest. Encrypted snapshots and backups by default.</p>
+          </article>
+          <article class="feature">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3 H15 L19 7 V21 H6 Z M15 3 V7 H19"/><path d="M9 12 H16 M9 15 H16 M9 18 H13"/></svg>
+            <h4>Audit logging</h4>
+            <p>Every prompt, response, and admin action recorded for compliance review.</p>
+          </article>
+          <article class="feature">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3 20 C3 16 6 14 9 14 C12 14 15 16 15 20"/><circle cx="17" cy="7" r="2.5"/><path d="M13 18 C13 15 15 13 17 13 C19 13 21 15 21 18"/></svg>
+            <h4>Role-based access control</h4>
+            <p>Permissions by user, group, and document set. Reviewable from a single console.</p>
+          </article>
+          <article class="feature">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="12" r="3.5"/><path d="M12.5 12 H21 M18 12 V15 M21 12 V15"/></svg>
+            <h4>Multi-factor authentication</h4>
+            <p>TOTP and FIDO2 supported. Enforced per role or per document sensitivity.</p>
+          </article>
+          <article class="feature">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20 V8 L12 3 L20 8 V20 Z"/><path d="M9 12 L11 14 L15 10"/></svg>
+            <h4>Controls mapped to SOC 2</h4>
+            <p>Logging, access review, and change-management controls aligned to SOC 2 and ISO 27001.</p>
+          </article>
+          <article class="feature">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="1"/><path d="M4 10 H20 M9 6 V4 M15 6 V4 M8 14 H10 M8 17 H10 M14 14 H16 M14 17 H16"/></svg>
+            <h4>Active Directory / LDAP</h4>
+            <p>Bind to existing identity infrastructure. Users keep their credentials.</p>
+          </article>
+          <article class="feature">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="12" height="6" rx="1"/><path d="M15 12 H21 M18 9 V15"/></svg>
+            <h4>Single sign-on</h4>
+            <p>SAML 2.0 and OIDC. One login across the AI portal and your other internal systems.</p>
+          </article>
+          <article class="feature">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3 H15 L20 8 V21 H6 Z M15 3 V8 H20"/><path d="M9 13 L12 16 L15 13 M12 11 V16"/></svg>
+            <h4>Document import</h4>
+            <p>Ingest from SMB, S3-compatible, SharePoint, and Confluence sources.</p>
+          </article>
+          <article class="feature">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="1"/><circle cx="8" cy="9" r="1.2"/><path d="M4 14 H20"/></svg>
+            <h4>Backup automation</h4>
+            <p>Scheduled snapshots of corpus, configuration, and audit logs. Restore tested per quarter.</p>
+          </article>
+          <article class="feature">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19 V11 M9 19 V7 M14 19 V13 M19 19 V4 M3 19 H21"/></svg>
+            <h4>Usage analytics</h4>
+            <p>Usage, latency, and GPU utilization on a single dashboard. Exportable to your SIEM.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="section pricing-bg" id="pricing">
-      <h2 class="section-title">Deployment Models</h2>
-      <p class="section-subtitle">
-        A staged engagement — validate in the cloud, then deploy sovereign,
-        air-gapped infrastructure scaled to your operation
-      </p>
-
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <span class="pricing-badge">START HERE</span>
-          <h3>Proof of Concept</h3>
-          <div class="subtext">6-week cloud validation</div>
-          <ul class="pricing-features">
-            <li>Validated against your actual corpus</li>
-            <li>Working portal with cited fault diagnosis</li>
-            <li>30-day live engineer access (SSO)</li>
-            <li>Engineer-driven benchmark report</li>
-            <li>90-minute live demo &amp; handoff</li>
-            <li>Fully creditable to deployment</li>
-          </ul>
-          <a
-            href="#contact"
-            class="btn-secondary"
-            style="width: 100%; display: block; text-align: center"
-            >Start a PoC</a
-          >
+    <!-- ── Industries ───────────────────────────────────────────── -->
+    <section class="std industries" id="industries">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Industries</span>
+            <h2>Built for sectors the cloud can't reach.</h2>
+          </div>
+          <p class="intro">
+            When regulation, classification, or contractual obligation rules out cloud AI,
+            on-premises is the only path to the same capability.
+          </p>
         </div>
 
-        <div class="pricing-card">
-          <h3>Strategic</h3>
-          <div class="subtext">Single inference server</div>
-          <ul class="pricing-features">
-            <li>40+ concurrent engineering users</li>
-            <li>2× NVIDIA RTX PRO 6000 Blackwell</li>
-            <li>192GB total VRAM</li>
-            <li>512GB ECC RAM · dual EPYC 9355</li>
-            <li>8TB NVMe + 32TB SAS archive</li>
-            <li>3-year parts &amp; labor warranty</li>
-          </ul>
-          <a
-            href="#contact"
-            class="btn-secondary"
-            style="width: 100%; display: block; text-align: center"
-            >Discuss deployment</a
-          >
-        </div>
+        <div class="industry-grid">
 
-        <div class="pricing-card featured">
-          <span class="pricing-badge">MOST FLEXIBLE</span>
-          <h3>Professional</h3>
-          <div class="subtext">Multi-model single server</div>
-          <ul class="pricing-features">
-            <li>40+ concurrent engineering users</li>
-            <li>3× NVIDIA RTX PRO 6000 Blackwell</li>
-            <li>288GB total VRAM</li>
-            <li>Parallel multi-model serving</li>
-            <li>Vision-language for schematics &amp; prints</li>
-            <li>768GB ECC RAM · 16TB NVMe + 48TB SAS</li>
-            <li>3-year parts &amp; labor warranty</li>
-          </ul>
-          <a
-            href="#contact"
-            class="btn-primary"
-            style="width: 100%; display: block; text-align: center"
-            >Discuss deployment</a
-          >
-        </div>
-
-        <div class="pricing-card">
-          <h3>Sovereign</h3>
-          <div class="subtext">High-availability cluster</div>
-          <ul class="pricing-features">
-            <li>Dual-node, zero-downtime failover</li>
-            <li>4× NVIDIA RTX PRO 6000 Blackwell</li>
-            <li>384GB total VRAM</li>
-            <li>1TB ECC RAM across nodes</li>
-            <li>InfiniBand HDR 200Gb/s fabric</li>
-            <li>16TB NVMe + 64TB SAS archive</li>
-            <li>For contractual SLA / critical uptime</li>
-          </ul>
-          <a
-            href="#contact"
-            class="btn-secondary"
-            style="width: 100%; display: block; text-align: center"
-            >Discuss deployment</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- ROI Section -->
-    <section class="roi-section" id="roi">
-      <h2 class="section-title" style="color: white">
-        Value Realization
-      </h2>
-      <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9)">
-        Rapid operational impact, sovereign by design
-      </p>
-
-      <div class="roi-stats">
-        <div class="roi-stat">
-          <div class="number">100%</div>
-          <div class="label">Data Stays On Your Network</div>
-        </div>
-        <div class="roi-stat">
-          <div class="number">$0</div>
-          <div class="label">No Recurring Fees</div>
-        </div>
-        <div class="roi-stat">
-          <div class="number">&lt;45</div>
-          <div class="label">Days to Operational ROI</div>
-        </div>
-        <div class="roi-stat">
-          <div
-            class="number"
-            style="
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              margin-top: 0.5rem;
-            "
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="70"
-              height="70"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <defs>
-                <linearGradient
-                  id="infinityGradient"
-                  x1="0%"
-                  y1="0%"
-                  x2="100%"
-                  y2="0%"
-                >
-                  <stop offset="0%" style="stop-color: #ffb020; stop-opacity: 1" />
-                  <stop offset="100%" style="stop-color: #ff7849; stop-opacity: 1" />
-                </linearGradient>
-              </defs>
-              <path
-                fill="url(#infinityGradient)"
-                d="M3 12C3 13.933 4.567 15.5 6.5 15.5C7.7035 15.5 8.51959 15.0662 9.19914 14.3866C9.82141 13.7644 10.3213 12.9468 10.8546 12C10.3213 11.0532 9.82141 10.2356 9.19914 9.61336C8.51959 8.9338 7.7035 8.5 6.5 8.5C4.567 8.5 3 10.067 3 12ZM6.5 17.5C3.46243 17.5 1 15.0376 1 12C1 8.96243 3.46243 6.5 6.5 6.5C8.2965 6.5 9.60541 7.1912 10.6134 8.19914C11.1486 8.7344 11.5999 9.36157 12 10.0017C12.4001 9.36157 12.8514 8.7344 13.3866 8.19914C14.3946 7.1912 15.7035 6.5 17.5 6.5C20.5376 6.5 23 8.96243 23 12C23 15.0376 20.5376 17.5 17.5 17.5C15.7035 17.5 14.3946 16.8088 13.3866 15.8009C12.8514 15.2656 12.4001 14.6384 12 13.9983C11.5999 14.6384 11.1486 15.2656 10.6134 15.8009C9.60541 16.8088 8.2965 17.5 6.5 17.5ZM13.1454 12C13.6787 12.9468 14.1786 13.7644 14.8009 14.3866C15.4804 15.0662 16.2965 15.5 17.5 15.5C19.433 15.5 21 13.933 21 12C21 10.067 19.433 8.5 17.5 8.5C16.2965 8.5 15.4804 8.9338 14.8009 9.61336C14.1786 10.2356 13.6787 11.0532 13.1454 12Z"
-              ></path>
+          <article class="industry">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 21 V11 L9 14 V11 L15 14 V11 L21 14 V21 Z M7 6 H9 V11 H7 Z M16 4 H18 V11 H16 Z M7 17 H8 M11 17 H12 M15 17 H16 M19 17 H20"/>
             </svg>
-          </div>
-          <div class="label" style="margin-top: 1rem">
-            Queries Per Deployment
-          </div>
+            <h3>Manufacturing &amp; Industrial</h3>
+            <p class="question">Can manufacturers use AI without sending plant data to the cloud?</p>
+            <p class="body">
+              Plant-floor OT networks are isolated from IT by design, and PLC code, schematics,
+              and SOPs are core process IP. On-prem AI diagnoses faults, captures retiring engineers'
+              knowledge, and bridges shifts — without anything leaving the air gap.
+            </p>
+          </article>
+
+          <article class="industry">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 L20 6 V12 C20 17 16 20.5 12 21 C8 20.5 4 17 4 12 V6 Z M8 11 L11 14 L16 9"/>
+            </svg>
+            <h3>Defense &amp; Aerospace</h3>
+            <p class="question">ITAR, CMMC, and classified programs — inside the enclave.</p>
+            <p class="body">
+              ITAR/EAR-controlled technical data and classified programs legally cannot touch a
+              commercial cloud. Run inference inside accredited, air-gapped enclaves while teams
+              query controlled drawings, requirements, and test data under CMMC.
+            </p>
+          </article>
+
+          <article class="industry">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 3 H14 V8 H19 V12 H14 V17 H10 V12 H5 V8 H10 Z M5 19 H19 V21 H5 Z"/>
+            </svg>
+            <h3>Healthcare &amp; Life Sciences</h3>
+            <p class="question">PHI never leaves the hospital network.</p>
+            <p class="body">
+              HIPAA-protected records, imaging, and clinical notes carry real liability the moment
+              they leave your premises. Keep PHI in-building while clinicians and researchers query
+              the full corpus with a complete audit trail.
+            </p>
+          </article>
+
+          <article class="industry">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 V20 M7 20 H17 M5 7 H19 M8 7 L4 14 H12 L8 7 Z M16 7 L12 14 H20 L16 7 Z"/>
+            </svg>
+            <h3>Legal &amp; Professional Services</h3>
+            <p class="question">Can law firms use AI without breaching attorney-client privilege?</p>
+            <p class="body">
+              Attorney-client privilege, sealed matters, and M&amp;A diligence demand that case files
+              never transit a third-party model. On-prem AI reviews discovery, drafts, and
+              precedent behind your own firewall.
+            </p>
+          </article>
+
+          <article class="industry">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9 L12 4 L21 9 H3 Z M5 11 V18 M9 11 V18 M15 11 V18 M19 11 V18 M3 21 H21"/>
+            </svg>
+            <h3>Financial Services &amp; Banking</h3>
+            <p class="question">MNPI, sealed deals, and examiner-ready logs.</p>
+            <p class="body">
+              Material non-public information, data-residency rules, and examiner scrutiny make
+              cloud inference a compliance risk. Analyze filings, contracts, and risk data with
+              sovereign control and full logging.
+            </p>
+          </article>
+
+          <article class="industry">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 V5 M11 3 H13 M3 11 L12 6 L21 11 H3 Z M5 13 V19 M9 13 V19 M15 13 V19 M19 13 V19 M3 21 H21"/>
+            </svg>
+            <h3>Government &amp; Public Sector</h3>
+            <p class="question">How can agencies use AI on CUI or classified workloads?</p>
+            <p class="body">
+              CUI and classified workloads require data sovereignty that public cloud cannot
+              guarantee. Deploy on accredited, isolated networks with controls aligned to
+              NIST 800-53 High and DoD SRG IL5–6.
+            </p>
+          </article>
+
+          <article class="industry">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M13 2 L4 14 H11 L10 22 L19 10 H12 Z"/>
+            </svg>
+            <h3>Energy &amp; Utilities</h3>
+            <p class="question">Behind the NERC CIP boundary.</p>
+            <p class="body">
+              NERC CIP and SCADA isolation keep critical-infrastructure systems off the public
+              internet. On-prem AI surfaces operational and compliance knowledge without breaching
+              the security perimeter.
+            </p>
+          </article>
+
+          <article class="industry">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 3 H15 M10 3 V9 L4 19 C3.3 20.3 4 21 5.5 21 H18.5 C20 21 20.7 20.3 20 19 L14 9 V3 M7 15 H17"/>
+            </svg>
+            <h3>Pharmaceutical &amp; Biotech R&amp;D</h3>
+            <p class="question">Can pharma use AI on proprietary R&amp;D and GxP data?</p>
+            <p class="body">
+              Trade-secret formulations, GxP records, and clinical-trial data are the entire value
+              of the enterprise. Keep proprietary research inside your walls while accelerating
+              literature and protocol review.
+            </p>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-      <h2>Ready to Transform Your Organization?</h2>
-      <p>
-        Tell us about your environment and we'll scope a deployment that fits.
-      </p>
-      <div class="hero-buttons">
-        <a href="mailto:contact@onsiteai.network" class="btn-primary"
-          >Get in touch</a
-        >
-        <a href="mailto:contact@onsiteai.network" class="btn-secondary"
-          >Email us</a
-        >
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>Onsite AI</h4>
-          <p>
-            Enterprise-grade AI infrastructure for organizations where
-            confidentiality is paramount. Secure, private, and powerful.
+    <!-- ── Packages ─────────────────────────────────────────────── -->
+    <section class="std packages" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Deployment models</span>
+            <h2>A staged engagement, from cloud PoC to sovereign deployment.</h2>
+          </div>
+          <p class="intro">
+            Validate against your real corpus first, then deploy sovereign, air-gapped
+            infrastructure scaled to your operation.
           </p>
         </div>
-        <div class="footer-section">
-          <h4>Solutions</h4>
-          <a href="#pricing">Pricing</a>
-          <a href="#features">Features</a>
-          <a href="#roi">Value realization</a>
-          <a href="mailto:contact@onsiteai.network">Get in touch</a>
-        </div>
-        <div class="footer-section">
-          <h4>Contact</h4>
-          <p>Email: contact@onsiteai.network</p>
+
+        <div class="package-grid">
+
+          <article class="package">
+            <span class="badge">Start here</span>
+            <h3>Proof of Concept</h3>
+            <div class="sub">6-week cloud validation</div>
+            <ul>
+              <li>Validated against your actual corpus</li>
+              <li>Working portal with cited fault diagnosis</li>
+              <li>30-day live engineer access (SSO)</li>
+              <li>Engineer-driven benchmark report</li>
+              <li>90-minute live demo &amp; handoff</li>
+              <li>Fully creditable to deployment</li>
+            </ul>
+            <div class="cta"><a class="btn btn-secondary" href="mailto:contact@onsiteai.network">Start a PoC</a></div>
+          </article>
+
+          <article class="package">
+            <h3>Strategic</h3>
+            <div class="sub">Single inference server</div>
+            <ul>
+              <li>40+ concurrent engineering users</li>
+              <li>2× NVIDIA RTX PRO 6000 Blackwell</li>
+              <li>192 GB total VRAM</li>
+              <li>512 GB ECC RAM · dual EPYC 9355</li>
+              <li>8 TB NVMe + 32 TB SAS archive</li>
+              <li>3-year parts &amp; labor warranty</li>
+            </ul>
+            <div class="cta"><a class="btn btn-secondary" href="mailto:contact@onsiteai.network">Discuss deployment</a></div>
+          </article>
+
+          <article class="package featured">
+            <span class="badge">Most flexible</span>
+            <h3>Professional</h3>
+            <div class="sub">Multi-model single server</div>
+            <ul>
+              <li>40+ concurrent engineering users</li>
+              <li>3× NVIDIA RTX PRO 6000 Blackwell</li>
+              <li>288 GB total VRAM</li>
+              <li>Parallel multi-model serving</li>
+              <li>Vision-language for schematics &amp; prints</li>
+              <li>768 GB ECC RAM · 16 TB NVMe + 48 TB SAS</li>
+              <li>3-year parts &amp; labor warranty</li>
+            </ul>
+            <div class="cta"><a class="btn btn-primary" href="mailto:contact@onsiteai.network">Discuss deployment</a></div>
+          </article>
+
+          <article class="package">
+            <h3>Sovereign</h3>
+            <div class="sub">High-availability cluster</div>
+            <ul>
+              <li>Dual-node, zero-downtime failover</li>
+              <li>4× NVIDIA RTX PRO 6000 Blackwell</li>
+              <li>384 GB total VRAM</li>
+              <li>1 TB ECC RAM across nodes</li>
+              <li>InfiniBand HDR 200 Gb/s fabric</li>
+              <li>16 TB NVMe + 64 TB SAS archive</li>
+              <li>For contractual SLA / critical uptime</li>
+            </ul>
+            <div class="cta"><a class="btn btn-secondary" href="mailto:contact@onsiteai.network">Discuss deployment</a></div>
+          </article>
+
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Onsite AI. All rights reserved.</p>
+    </section>
+
+    <!-- ── ROI ──────────────────────────────────────────────────── -->
+    <section class="roi" id="roi">
+      <div class="container">
+        <div class="head">
+          <div>
+            <span class="eyebrow">Value realization</span>
+            <h2>Rapid operational impact, sovereign by design.</h2>
+          </div>
+          <p class="intro">
+            Customers see operational impact within the first month — without per-query
+            economics fighting them.
+          </p>
+        </div>
+
+        <div class="roi-grid">
+          <div class="roi-stat">
+            <span class="label">Data stays on your network</span>
+            <span class="num">100<span class="accent">%</span></span>
+            <span class="sub">zero external dependency</span>
+          </div>
+          <div class="roi-stat">
+            <span class="label">Per query, per token</span>
+            <span class="num"><span class="accent">$</span>0</span>
+            <span class="sub">no metered billing</span>
+          </div>
+          <div class="roi-stat">
+            <span class="label">Days to operational ROI</span>
+            <span class="num">&lt; 45</span>
+            <span class="sub">from install to value</span>
+          </div>
+          <div class="roi-stat">
+            <span class="label">Queries per deployment</span>
+            <span class="num"><span class="accent">∞</span></span>
+            <span class="sub">unlimited, by design</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ──────────────────────────────────────────────────── -->
+    <section class="cta" id="contact">
+      <div class="container">
+        <div>
+          <span class="eyebrow">Next step</span>
+          <h2>Talk to a deployment engineer.</h2>
+          <p>Tell us about your environment and we'll scope a deployment that fits.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary btn-arrow" href="mailto:contact@onsiteai.network">contact@onsiteai.network</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Footer ───────────────────────────────────────────────── -->
+    <footer>
+      <div class="container">
+        <div>
+          <a href="#" class="brand">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-text">
+              <span><span style="font-weight:600">Onsite</span> <span class="ai">AI</span></span>
+              <span class="parent">by Inpactive</span>
+            </span>
+          </a>
+          <p class="desc">
+            AI infrastructure deployed inside your perimeter, on hardware you own.
+          </p>
+          <p class="desc" style="margin-top:10px">Onsite AI is a product of <a href="https://inpactive.com" target="_blank" rel="noopener" style="display:inline;color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;margin:0">Inpactive</a>.</p>
+        </div>
+        <div>
+          <h4>Solutions</h4>
+          <a href="#pricing">Deployment models</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#industries">Industries</a>
+          <a href="#roi">Value realization</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="mailto:contact@onsiteai.network">contact@onsiteai.network</a>
+        </div>
+      </div>
+      <div class="container legal">
+        <span>© 2026 <a href="https://inpactive.com" target="_blank" rel="noopener" style="display:inline;color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;margin:0">Inpactive, Inc.</a> · Onsite AI · All rights reserved.</span>
       </div>
     </footer>
 
-    <script>
-      // Hero Canvas Animation — amber particle network
-      const canvas = document.getElementById("hero-canvas");
-      const ctx = canvas.getContext("2d");
-      let particles = [];
-      let animationFrameId;
-
-      function resizeCanvas() {
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-      }
-
-      class Particle {
-        constructor() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.vx = (Math.random() - 0.5) * 0.6;
-          this.vy = (Math.random() - 0.5) * 0.6;
-          this.radius = Math.random() * 2.5 + 1;
-          this.opacity = Math.random() * 0.5 + 0.3;
-        }
-
-        update() {
-          this.x += this.vx;
-          this.y += this.vy;
-
-          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-        }
-
-        draw() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-          const gradient = ctx.createRadialGradient(
-            this.x,
-            this.y,
-            0,
-            this.x,
-            this.y,
-            this.radius
-          );
-          gradient.addColorStop(0, `rgba(255, 176, 32, ${this.opacity * 1.5})`);
-          gradient.addColorStop(1, `rgba(255, 137, 73, 0)`);
-          ctx.fillStyle = gradient;
-          ctx.fill();
-        }
-      }
-
-      function initParticles() {
-        particles = [];
-        const particleCount = Math.min(100, Math.floor(canvas.width / 12));
-        for (let i = 0; i < particleCount; i++) {
-          particles.push(new Particle());
-        }
-      }
-
-      function connectParticles() {
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 150) {
-              ctx.beginPath();
-              const opacity = 0.32 * (1 - distance / 150);
-              ctx.strokeStyle = `rgba(41, 231, 224, ${opacity})`;
-              ctx.lineWidth = 1.5;
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.stroke();
-            }
-          }
-        }
-      }
-
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        particles.forEach((particle) => {
-          particle.update();
-          particle.draw();
-        });
-
-        connectParticles();
-        animationFrameId = requestAnimationFrame(animate);
-      }
-
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-
-      resizeCanvas();
-      initParticles();
-      if (prefersReducedMotion) {
-        // Draw a single static frame instead of animating.
-        particles.forEach((p) => p.draw());
-        connectParticles();
-      } else {
-        animate();
-      }
-
-      window.addEventListener("resize", () => {
-        resizeCanvas();
-        initParticles();
-      });
-
-      // Mobile menu toggle
-      function toggleMenu() {
-        const navLinks = document.getElementById("navLinks");
-        navLinks.classList.toggle("active");
-      }
-
-      // Navbar scroll effect
-      window.addEventListener("scroll", function () {
-        const navbar = document.getElementById("navbar");
-        if (window.scrollY > 50) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
-
-      // Fade in elements on scroll
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -80px 0px",
-      };
-
-      const observer = new IntersectionObserver(function (entries) {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      document
-        .querySelectorAll(".feature-card, .pricing-card, .roi-stat")
-        .forEach((card) => {
-          card.style.opacity = "0";
-          card.style.transform = "translateY(40px)";
-          card.style.transition = "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)";
-          observer.observe(card);
-        });
-
-      // Close mobile menu when clicking a link
-      document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", function () {
-          document.getElementById("navLinks").classList.remove("active");
-        });
-      });
-    </script>
   </body>
 </html>
